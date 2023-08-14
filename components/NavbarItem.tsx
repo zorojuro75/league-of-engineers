@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import { IconType } from 'react-icons';
 import { twMerge } from 'tailwind-merge';
 
 interface NavbarItemProps {
@@ -19,22 +18,21 @@ const NavbarItem: React.FC<NavbarItemProps> = ({
       className={twMerge(`
         flex 
         flex-row 
-        h-auto 
         items-center 
         w-full 
         gap-x-4 
-        text-md 
-        font-medium
         cursor-pointer
-        hover:text-black
         transition
-        text-neutral-600
+        text-white
         py-1`,
         active && "text-primary font-semibold"
         )
       }
     >
-      <p className="truncate w-100 hidden md:block">{label}</p>
+      {/* <p className="truncate w-100 hidden md:block text-[25px]">{label}</p> */}
+      <div className="truncate text-white w-100 hidden md:block text-[20px]">
+        <p className={twMerge(active && "w-[70%] border-b-[2px]")}>{label}</p>
+      </div>
     </Link>
    );
 }

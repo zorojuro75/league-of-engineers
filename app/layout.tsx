@@ -1,9 +1,10 @@
 import Navbar from '@/components/Navbar'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Poppins } from 'next/font/google'
+import { Poppins, Nunito } from 'next/font/google'
+import { twMerge } from 'tailwind-merge'
 
-const font = Poppins({ subsets: ['latin'], weight: ['400','700'] })
+const font = Nunito({ subsets: ['latin'], weight: ['400','700'] })
 
 export const metadata: Metadata = {
   title: 'Football',
@@ -18,7 +19,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={font.className} >
+      <body className={font.className}>
         <Navbar>{children}</Navbar>
       </body>
     </html>

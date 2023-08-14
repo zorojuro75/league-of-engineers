@@ -33,7 +33,7 @@ const Schedule: React.FC<ScheduleProps> = ({
         href: "/26july",
       },
       {
-        label: "27 July",
+        label: "27 august",
         active: pathname === "/27july",
         href: "/27july",
       },

@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import NavbarItem from "./NavbarItem";
 import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
 import MobileItem from "./MobileItem";
+import Register from "./Register";
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -18,11 +19,6 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
         label: "Home",
         active: pathname === "/",
         href: "/",
-      },
-      {
-        label: "Registration",
-        active: pathname === "/registration",
-        href: "/registration",
       },
       {
         label: "Teams",
@@ -45,6 +41,7 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
   return (
     <div
       className="
+      bg-background
       flex
       flex-col
       h-screen
@@ -52,7 +49,6 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
     >
       <div
         className="
-        bg-background 
         flex 
         md:px-20 
         px-6
@@ -64,43 +60,50 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
         </Logo>
         {/* Expand button for mobile view */}
         <button
-          className="md:hidden text-black focus:outline-none p-6"
+          className="md:hidden text-white focus:outline-none p-6"
           onClick={() => setExpanded(!expanded)}
         >
-          {expanded ?(
-            <RxCross2 size={26}/>
-          ) : (
-            <RxHamburgerMenu size={26}/>
-          )}
+          {expanded ? <RxCross2 size={26} /> : <RxHamburgerMenu size={26} />}
         </button>
         <div
           className="
           hidden
           md:flex 
-          gap-x-4 
-          px-5 
+          gap-x-[47px] 
+          w-[512px] 
           py-4
-          bg-background
           "
         >
           {routes.map((item) => (
             <NavbarItem key={item.label} {...item} />
           ))}
-        </div> 
-      </div>
-      <div>
-        { expanded? (<div>
-          {routes.map((item) => (
-            <MobileItem key={item.label} {...item} />
-          ))}
-        </div>):(null)}
         </div>
+        <Register />
+        
+      </div>
+      <div className="md:hidden">
+          <hr />
+        </div>
+      <div>
+        {expanded ? (
+          <div className="ms-[30%] mt-[10%]">
+            {routes.map((item) => (
+              <MobileItem key={item.label} {...item} />
+            ))}
+          </div>
+        ) : null}
+      </div>
+
+      <div className="w-[80%] mx-auto hidden md:block">
+        <hr />
+      </div>
+
       <main
         className="
         flex
         flex-col
-        bg-white
         h-full
+        text-white
         "
       >
         {children}
