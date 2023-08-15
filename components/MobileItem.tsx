@@ -24,7 +24,7 @@ const MobileItem: React.FC<MobileItemProps> = ({ label, active, href }) => {
       )}
     >
       <div className="truncate text-white w-100">
-        <p className={twMerge(active && "w-[70%] border-b-[2px]")}>{label}</p>
+        <p>{label}</p>
       </div>
     </Link>
   );

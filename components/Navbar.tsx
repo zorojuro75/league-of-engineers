@@ -21,6 +21,11 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
         href: "/",
       },
       {
+        label: "About",
+        active: pathname === "/about",
+        href: "/about",
+      },
+      {
         label: "Teams",
         active: pathname === "/teams",
         href: "/teams",
@@ -53,6 +58,8 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
         md:px-20 
         px-6
         justify-between
+        bg-[#131b1d]
+        sticky top-0
         "
       >
         <Logo>
@@ -81,12 +88,9 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
         <Register />
         
       </div>
-      <div className="md:hidden">
-          <hr />
-        </div>
       <div>
         {expanded ? (
-          <div className="ms-[30%] mt-[10%]">
+          <div className="md:absolute w-[100%] md:hidden bg-background mt-5">
             {routes.map((item) => (
               <MobileItem key={item.label} {...item} />
             ))}
@@ -94,9 +98,6 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
         ) : null}
       </div>
 
-      <div className="w-[80%] mx-auto hidden md:block">
-        <hr />
-      </div>
 
       <main
         className="

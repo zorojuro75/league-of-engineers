@@ -31,7 +31,7 @@ const NavbarItem: React.FC<NavbarItemProps> = ({
     >
       {/* <p className="truncate w-100 hidden md:block text-[25px]">{label}</p> */}
       <div className="truncate text-white w-100 hidden md:block text-[20px]">
-        <p className={twMerge(active && "w-[70%] border-b-[2px]")}>{label}</p>
+        <p className={twMerge(active && "border-b-[2px]")}>{label}</p>
       </div>
     </Link>
    );
