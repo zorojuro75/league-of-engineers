@@ -32,7 +32,7 @@ const Registration = () => {
       {
         label: "Email",
         placeHolder: "Enter your contact number",
-        inputType: "number",
+        inputType: "email",
       },
       {
         label: "Past Tournaments",
@@ -74,9 +74,9 @@ const Registration = () => {
           <FormItems key={item.label} {...item} />
         ))}
 
-        <caption className="border text-center py-[8px] mt-5 rounded-[5px] bg-cyan-500 text-black text-xl font-bold caption-bottom md:w-[30%] w-[98%] md:mx-auto">
+        <div className="border text-center py-[8px] mt-5 rounded-[5px] bg-cyan-500 text-black text-xl font-bold table-caption  caption-bottom md:w-[30%] w-[98%] md:mx-auto">
           <input type="submit" value="Submit" />
-        </caption>
+        </div>
       </form>
     </div>
   );
