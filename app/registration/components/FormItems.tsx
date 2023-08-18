@@ -6,6 +6,7 @@ interface FormItemsProps{
     label: string;
     inputType: string;
     accept?: string;
+    name?: string;
 }
 
 
@@ -13,7 +14,8 @@ const FormItems:React.FC<FormItemsProps> = ({
     placeHolder,
     label,
     inputType,
-    accept
+    accept,
+    name
 }) => {
   return (
     <div className="table-row space-x-2 md:space-x-0">
@@ -23,8 +25,9 @@ const FormItems:React.FC<FormItemsProps> = ({
         <input
           type={inputType}
           placeholder={placeHolder}
-          required
           accept={accept}
+          name={name}
+          autoComplete='off'
           className="bg-background border border-cyan-700 rounded p-2 table-cell w-[94%]"
         />
       </div>
