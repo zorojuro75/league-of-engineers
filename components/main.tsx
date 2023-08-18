@@ -1,6 +1,5 @@
 "use client"
 import React from 'react'
-import Image from 'next/image'
 import Register from './Register'
 import { motion } from 'framer-motion'
 
@@ -8,7 +7,7 @@ export default function Main() {
   return (
     <div className='bg-[#f2f3f6] h-full relative'>
         <div >
-        <Image
+        <img
             src="/kicking.png"
             width={40000}
             height={40000}
