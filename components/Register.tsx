@@ -4,7 +4,9 @@ import { BsArrowUpRight } from "react-icons/bs";
 import Link from "next/link";
 
 const Register = ({
-  className
+  className,
+}:{
+  className: string
 }) => {
   return (
     <Link
