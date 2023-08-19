@@ -5,7 +5,8 @@ import supabase from "@/config/supabase";
 const Registration = () => {
   const handleSubmit = async (formData: FormData)=> {
     'use server';
-    console.log(formData.get("name"));
+    console.log(formData.get("file"));
+
     const { data, error } = await supabase
     .from('form').insert([{ name: formData.get("name"), 
                             id: formData.get("id"), 
