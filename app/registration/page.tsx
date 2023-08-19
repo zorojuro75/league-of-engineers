@@ -5,8 +5,6 @@ import supabase from "@/config/supabase";
 const Registration = () => {
   const handleSubmit = async (formData: FormData)=> {
     'use server';
-    console.log(formData.get("image"));
-
     const file = formData.get("image")
 
     if (file){
@@ -33,7 +31,7 @@ const Registration = () => {
     // Optional: Display a success message or perform any other actions
 
     // For now, let's just clear the form fields -- Kinda Done
-    redirect("/")
+    redirect("/registration")
   };
   var formItem = useMemo(
     () => [
