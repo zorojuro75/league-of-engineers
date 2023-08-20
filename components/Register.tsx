@@ -2,19 +2,12 @@ import React from "react";
 import { twMerge } from "tailwind-merge";
 import { BsArrowUpRight } from "react-icons/bs";
 import Link from "next/link";
-<<<<<<< HEAD
-
-const Register = ({
-  className
-}) => {
-=======
 type ButtonProps = {
   className?: string
 }
 const Register = (
   { className }: ButtonProps
 ) => {
->>>>>>> 73505aa31aa5be8d5139fa7fce4c6fb9a71ba487
   return (
     <Link
       href="registration"
