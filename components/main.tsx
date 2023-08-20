@@ -13,7 +13,7 @@ export default function Main() {
             width={40000}
             height={40000}
             alt="Picture of the author"
-            className='absolute bottom-0 right-0 h-[65rem] w-[77rem]'
+            className='absolute bottom-0 right-0 h-[95%] w-[77rem]'
         />
         </div>
         <div className='text-black absolute top-[7rem] left-[5rem]'>
