@@ -8,8 +8,11 @@ const Registration = () => {
     console.log(formData.get("image"));
 
     const file = formData.get("image")
-    const {data: imgData, error: imgError} = await supabase.storage.from('images').upload("players/" + formData.get("id"), file)
 
+    if (file){
+      const {data: imgData, error: imgError} = await supabase.storage.from('images').upload("players/" + formData.get("id"), file)
+    }
+    
 
     const { data, error } = await supabase
     .from('form').insert([{ name: formData.get("name"), 
@@ -22,7 +25,7 @@ const Registration = () => {
                           }])
     const imageUrl = supabase.storage.from("images").getPublicUrl("players/" + formData.get("id")).data.publicUrl;
     const { data:img, error:imgE } = await supabase.from("form").update({image: imageUrl}).eq('id', formData.get("id"))
-    
+
     // Logic to save image in the storage -- Done
 
     // get the link of the image in the storge and set it in the database -- Done
