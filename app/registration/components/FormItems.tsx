@@ -27,6 +27,7 @@ const FormItems:React.FC<FormItemsProps> = ({
           placeholder={placeHolder}
           accept={accept}
           name={name}
+          required
           autoComplete='off'
           className="bg-background border border-cyan-700 rounded p-2 table-cell w-[94%]"
         />

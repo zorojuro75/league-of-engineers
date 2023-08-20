@@ -5,7 +5,11 @@ import supabase from "@/config/supabase";
 const Registration = () => {
   const handleSubmit = async (formData: FormData)=> {
     'use server';
-    console.log(formData.get("file"));
+    console.log(formData.get("image"));
+
+    const file = formData.get("image")
+    const {data: imgData, error: imgError} = await supabase.storage.from('images').upload("players/" + formData.get("id"), file)
+
 
     const { data, error } = await supabase
     .from('form').insert([{ name: formData.get("name"), 
@@ -16,15 +20,17 @@ const Registration = () => {
                             position: formData.get("position"),
                             transaction: formData.get("transaction")
                           }])
+    const imageUrl = supabase.storage.from("images").getPublicUrl("players/" + formData.get("id")).data.publicUrl;
+    const { data:img, error:imgE } = await supabase.from("form").update({image: imageUrl}).eq('id', formData.get("id"))
     
-    // Logic to save image in the storage 
+    // Logic to save image in the storage -- Done
 
-    // get the link of the image in the storge and set it in the database
+    // get the link of the image in the storge and set it in the database -- Done
 
     // Optional: Display a success message or perform any other actions
 
-    // For now, let's just clear the form fields
-    redirect('/')
+    // For now, let's just clear the form fields -- Kinda Done
+    redirect("/")
   };
   var formItem = useMemo(
     () => [
@@ -69,6 +75,7 @@ const Registration = () => {
         placeHolder: '',
         inputType: "file",
         accept: "image/*",
+        name: "image"
       },
       {
         label: "Transaction",
