@@ -58,7 +58,7 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
         md:px-20 
         px-6
         justify-between
-        bg-[#131b1d]
+        bg-[#00212E]
         sticky top-0
         "
       >

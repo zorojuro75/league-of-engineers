@@ -5,13 +5,14 @@ import supabase from "@/config/supabase";
 const Registration = () => {
   const handleSubmit = async (formData: FormData)=> {
     'use server';
+    console.log(formData.get("image"));
+
     const file = formData.get("image")
 
     if (file){
       const {data: imgData, error: imgError} = await supabase.storage.from('images').upload("players/" + formData.get("id"), file)
     }
     
-
     const { data, error } = await supabase
     .from('form').insert([{ name: formData.get("name"), 
                             id: formData.get("id"), 
