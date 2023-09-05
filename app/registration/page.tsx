@@ -1,29 +1,41 @@
 import React, { useMemo } from "react";
-import { redirect } from 'next/navigation';
+import { redirect } from "next/navigation";
 import FormItems from "./components/FormItems";
 import supabase from "@/config/supabase";
+import Footer from "@/components/Footer";
 const Registration = () => {
-  const handleSubmit = async (formData: FormData)=> {
-    'use server';
+  const handleSubmit = async (formData: FormData) => {
+    "use server";
     console.log(formData.get("image"));
 
-    const file = formData.get("image")
+    const file = formData.get("image");
 
-    if (file){
-      const {data: imgData, error: imgError} = await supabase.storage.from('images').upload("players/" + formData.get("id"), file)
+    if (file) {
+      const { data: imgData, error: imgError } = await supabase.storage
+        .from("images")
+        .upload("players/" + formData.get("id"), file);
     }
-    
+
     const { data, error } = await supabase
-    .from('form').insert([{ name: formData.get("name"), 
-                            id: formData.get("id"), 
-                            department: formData.get("department"),
-                            email: formData.get("email"),
-                            pastTournament: formData.get("tournament"),
-                            position: formData.get("position"),
-                            transaction: formData.get("transaction")
-                          }])
-    const imageUrl = supabase.storage.from("images").getPublicUrl("players/" + formData.get("id")).data.publicUrl;
-    const { data:img, error:imgE } = await supabase.from("form").update({image: imageUrl}).eq('id', formData.get("id"))
+      .from("form")
+      .insert([
+        {
+          name: formData.get("name"),
+          id: formData.get("id"),
+          department: formData.get("department"),
+          email: formData.get("email"),
+          pastTournament: formData.get("tournament"),
+          position: formData.get("position"),
+          transaction: formData.get("transaction"),
+        },
+      ]);
+    const imageUrl = supabase.storage
+      .from("images")
+      .getPublicUrl("players/" + formData.get("id")).data.publicUrl;
+    const { data: img, error: imgE } = await supabase
+      .from("form")
+      .update({ image: imageUrl })
+      .eq("id", formData.get("id"));
 
     // Logic to save image in the storage -- Done
 
@@ -32,7 +44,7 @@ const Registration = () => {
     // Optional: Display a success message or perform any other actions
 
     // For now, let's just clear the form fields -- Kinda Done
-    redirect("/registration")
+    redirect("/registration");
   };
   var formItem = useMemo(
     () => [
@@ -56,7 +68,7 @@ const Registration = () => {
       },
       {
         label: "Email",
-        placeHolder: "Enter your contact number",
+        placeHolder: "example@gmail.com",
         inputType: "email",
         name: "email",
       },
@@ -74,10 +86,10 @@ const Registration = () => {
       },
       {
         label: "Image",
-        placeHolder: '',
+        placeHolder: "",
         inputType: "file",
         accept: "image/*",
-        name: "image"
+        name: "image",
       },
       {
         label: "Transaction",
@@ -89,22 +101,27 @@ const Registration = () => {
     []
   );
 
-
   return (
     <div className="bg-background">
       <h1 className="text-center text-3xl py-[20px] px-2">
         Player Registration Form
       </h1>
-      <form action={handleSubmit}
-      className="md:mx-auto mx-4 mb-5 md:table md:text-lg text-md md:w-[40%]">
-        {formItem.map((item) => (
-          <FormItems key={item.label} {...item} />
-        ))}
+      <div className="flex flex-col justify-center">
+        <div> Rules</div>
+        <form
+          action={handleSubmit}
+          className="md:mx-auto mx-4 mb-5 md:table md:text-lg text-md md:w-[40%]"
+        >
+          {formItem.map((item) => (
+            <FormItems key={item.label} {...item} />
+          ))}
 
-        <div className="border text-center py-[8px] mt-5 rounded-[5px] bg-cyan-500 text-black text-xl font-bold table-caption  caption-bottom md:w-[30%] w-[98%] md:mx-auto">
-          <input type="submit" name="Submit" />
-        </div>
-      </form>
+          <div className="border text-center py-[8px] mt-5 rounded-[5px] bg-cyan-500 text-black text-xl font-bold table-caption  caption-bottom md:w-[30%] w-[98%] md:mx-auto">
+            <input type="submit" name="Submit" />
+          </div>
+        </form>
+      </div>
+      <Footer />
     </div>
   );
 };

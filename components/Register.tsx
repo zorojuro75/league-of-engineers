@@ -11,10 +11,10 @@ const Register = (
   return (
     <Link
       href="registration"
-      className={twMerge(`border-1 gap-2 px-2 rounded text-black my-6 bg-[#E3A02B] hidden md:flex items-center`,className)}
+      className={twMerge(`border-2 border-black rounded text-black my-6 bg-[#E3A02B] hidden md:flex items-center justify-center`,className)}
     >
-      <div className="text-xl font-bold">Register</div>
-      <BsArrowUpRight fontSize={24} />
+      <div className="text-[20px] font-semibold">Register</div>
+      <BsArrowUpRight fontSize={20} />
     </Link>
   );
 };
