@@ -24,7 +24,7 @@ const TournamentRules = () => {
         </div>
         <div className="flex gap-[32px]">
         <Rules icon={GiSoccerField} title={'Team Formation'} description={"Calling all managers to the bidding table! Craft your dream team through an exciting auction process and set the stage on fire in the 'League of Engineers' tournament."} />
-        <Rules icon={RiAuctionFill} title={'Auction Process'} description={"It's time to bid and build! Managers' first picks become icon players, teaming up with faculty to gather the remaining team members using virtual coins."} />
+        <Rules icon={RiAuctionFill} title={'Auction Process'} description={"It's time to bid and build! Managers' first picks become icon players, teaming up with faculty to gather the remaining team members using virtual coins"} />
         </div>
       </div>
     </div>
