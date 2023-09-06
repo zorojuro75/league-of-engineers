@@ -19,7 +19,7 @@ export default function Main() {
         </p>
         <p className="my-[22px] w-[403px] h-auto text-[#667085] text-[20px]">
           Where Engineering Excellence Meets Football Fervor - Uniting Our
-          Department's Best on the Pitch! Register now to become a part of the
+          Department&apos;s Best on the Pitch! Register now to become a part of the
           League of Engineers tournament as a player.
         </p>
         <div>

@@ -12,7 +12,7 @@ const TournamentRules = () => {
             How the tournament works
           </div>
           <div className="text-gray-500 text-xl text-center pt-[20px]">
-            Get a closer look at the tournament's framework and understand the
+            Get a closer look at the tournament&apos;s framework and understand the
             step-by-step process that drives the League of Engineers event.
           </div>
         </div>
