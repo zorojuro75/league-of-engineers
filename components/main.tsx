@@ -2,7 +2,6 @@
 import React from "react";
 import Image from "next/image";
 import Register from "./Register";
-import { motion } from "framer-motion";
 import styles from "./main.module.css";
 import Footer from "./Footer";
 
