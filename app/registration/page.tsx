@@ -102,12 +102,12 @@ const Registration = () => {
   );
 
   return (
-    <div className="bg-background">
+    <div className="bg-background text-white">
       <h1 className="text-center text-3xl py-[20px] px-2">
         Player Registration Form
       </h1>
       <div className="flex flex-col justify-center">
-        <div> Rules</div>
+        <div className="h-[41px]"></div>
         <form
           action={handleSubmit}
           className="md:mx-auto mx-4 mb-5 md:table md:text-lg text-md md:w-[40%]"

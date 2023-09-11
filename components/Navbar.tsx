@@ -6,7 +6,6 @@ import NavbarItem from "./NavbarItem";
 import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
 import MobileItem from "./MobileItem";
 import Register from "./Register";
-import Footer from "./Footer";
 
 interface NavbarProps {
   children: React.ReactNode;

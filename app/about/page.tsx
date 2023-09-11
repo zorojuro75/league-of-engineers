@@ -3,6 +3,7 @@ import AboutSection from './components/AboutSection';
 import TournamentRules from './components/TournamentRules';
 import Footer from '@/components/Footer';
 import Overview from './components/Overview';
+import Ready from './components/Ready';
 
 const About = () => {
   return (
@@ -10,6 +11,7 @@ const About = () => {
       <AboutSection />
       <TournamentRules />
       <Overview />
+      <Ready />
       <Footer/>
     </div>
   )
