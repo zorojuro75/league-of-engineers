@@ -1,8 +1,31 @@
 "use client";
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Image from "next/image";
 import { Carousel } from "@material-tailwind/react";
+import supabase from "@/config/supabase";
+
 const Overview = () => {
+  const [fetchError, setFetchError] = useState<any>(null)
+  const [imgData, setImgData] = useState<any>(null)
+
+  useEffect(()=>{
+    const fetchImage = async() => {
+      const {data, error } = await supabase.from('carouselImg').select("*")
+      if(error){
+        setFetchError('Could not fetch the data')
+        setImgData(null)
+        console.log(error)
+      }
+
+      if(data){
+        setImgData(data)
+        setFetchError(null)
+      }
+    }
+    fetchImage()
+  },[])
+
+
   return (
     <div className="flex mx-[96px] py-[96px] px-[32px] h-[693px]">
       <div className="w-[50%] gap-[32px]">
@@ -26,18 +49,18 @@ const Overview = () => {
         </div>
       </div>
       <div className="w-[50%]">
-        <Carousel>
-            <img 
-              src="/204.jpg"
-              alt="no images found"
-              className="h-full w-full object-cover"
-            />
-            <img
-              src="/204.jpg"
-              alt="no images found 2"
-              className="h-full w-full object-cover"
-            />
-        </Carousel>
+        {imgData && (
+          <Carousel>
+            {imgData.map((data:any) => (
+              <img
+                src={data.image}
+                alt=""
+                key={data.id}
+                className="h-full w-full object-cover"
+              />
+            ))}
+          </Carousel>
+        )}
       </div>
     </div>
   );
