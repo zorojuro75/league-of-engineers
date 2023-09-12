@@ -83,7 +83,7 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
             <NavbarItem key={item.label} {...item} />
           ))}
         </div>
-        <Register />
+        <Register className="w-[150px] h-[60px] rounded-[8px] md:flex hidden"/>
       </div>
       <div>
         {expanded ? (

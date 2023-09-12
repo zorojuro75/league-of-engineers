@@ -9,7 +9,7 @@ const Rules = ({
     icon, title, description
 }: rulesProps) => {
   return (
-    <div className='h-[180px] w-[592px] flex flex-col items-center'>
+    <div className='md:h-[180px] md:w-[592px] flex flex-col items-center md:mb-0 mb-[64px]'>
         <div className='rounded-[100%] bg-orange-400 w-[40px] h-[40px] flex items-center justify-center mb-[20px]'>
         {React.createElement(icon, { fontSize: 30 })}
         </div>

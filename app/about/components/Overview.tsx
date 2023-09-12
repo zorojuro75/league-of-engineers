@@ -29,13 +29,13 @@ const Overview = () => {
 
 
   return (
-    <div className="flex mx-[96px] py-[96px] px-[32px] h-[693px]">
-      <div className="w-[50%] gap-[32px]">
-        <div className="h-[105px]">
+    <div className="md:flex md:mx-[96px] md:py-[96px] py-[20px] md:px-[32px] mx-[20px] md:h-[693px]">
+      <div className="md:w-[50%] md:gap-[32px]">
+        <div className="md:h-[105px]">
           <h1 className="text-[48px]">Season 1</h1>
           <h1 className="text-[16px]">At a glance</h1>
         </div>
-        <div className="h-[364px]">
+        <div className="md:h-[364px] text-justify">
           In its inaugural season, the League of Engineers ignited a blaze of
           passion and competition among the students of SETS Engineering
           Department. With sixteen spirited teams taking to the field, Season 1
@@ -50,17 +50,17 @@ const Overview = () => {
           tomorrow&apos;s engineers.
         </div>
       </div>
-      <div className="w-[50%]">
+      <div className="md:w-[50%] my-[32px] md:my-0">
         {imgData && (
           <Carousel
-          className="rounded-xl h-[380px]"
+          className="rounded-xl md:h-[380px] h-[200px]"
           prevArrow={({ handlePrev }) => (
             <IconButton
               variant="text"
               color="orange"
               size="lg"
               onClick={handlePrev}
-              className="!absolute top-2/4 left-4 -translate-y-2/4"
+              className="!absolute top-2/4 left-[-12px] -translate-y-2/4"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -84,7 +84,7 @@ const Overview = () => {
               color="orange"
               size="lg"
               onClick={handleNext}
-              className="!absolute top-2/4 !right-4 -translate-y-2/4"
+              className="!absolute top-2/4 !right-[-12px] -translate-y-2/4"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -102,6 +102,7 @@ const Overview = () => {
               </svg>
             </IconButton>
           )}
+          autoplay
         >
     
             {imgData.map((data:any) => (
@@ -109,9 +110,9 @@ const Overview = () => {
                 src={data.image}
                 alt=""
                 key={data.id}
-                width={600}
-                height={400}
-                className="ms-[100px] border-2 border-black "
+                width={300}
+                height={0}
+                className="md:ms-[100px] ms-[26px] border-2 border-black "
               />
             ))}
           </Carousel>

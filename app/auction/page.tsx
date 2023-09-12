@@ -2,7 +2,7 @@ import React from 'react'
 
 const Auction = () => {
   return (
-    <div>Auction Page</div>
+    <div>YET TO RELEASE</div>
   )
 }
 

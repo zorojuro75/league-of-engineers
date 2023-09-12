@@ -3,7 +3,9 @@ import Schedule from './components/Schedule';
 
 const Matches = () => {
   return (
-    <Schedule> Hello</Schedule>
+    <>
+    <div>YET TO RELEASE</div>
+    </>
   )
 }
 
