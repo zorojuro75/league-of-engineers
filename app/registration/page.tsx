@@ -16,19 +16,17 @@ const Registration = () => {
         .upload("players/" + formData.get("id"), file);
     }
 
-    const { data, error } = await supabase
-      .from("form")
-      .insert([
-        {
-          name: formData.get("name"),
-          id: formData.get("id"),
-          department: formData.get("department"),
-          email: formData.get("email"),
-          pastTournament: formData.get("tournament"),
-          position: formData.get("position"),
-          transaction: formData.get("transaction"),
-        },
-      ]);
+    const { data, error } = await supabase.from("form").insert([
+      {
+        name: formData.get("name"),
+        id: formData.get("id"),
+        department: formData.get("department"),
+        email: formData.get("email"),
+        pastTournament: formData.get("tournament"),
+        position: formData.get("position"),
+        transaction: formData.get("transaction"),
+      },
+    ]);
     const imageUrl = supabase.storage
       .from("images")
       .getPublicUrl("players/" + formData.get("id")).data.publicUrl;

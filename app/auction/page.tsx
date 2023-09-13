@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const Auction = () => {
-  return (
-    <div>YET TO RELEASE</div>
-  )
-}
+  return <div>YET TO RELEASE</div>;
+};
 
 export default Auction;

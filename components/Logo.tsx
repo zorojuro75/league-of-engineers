@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 interface LogoProps {
-    children: React.ReactNode;
+  children: React.ReactNode;
 }
-const Logo: React.FC<LogoProps> = ({
-    children,
-}) => {
+const Logo: React.FC<LogoProps> = ({ children }) => {
   return (
-    <div className='px-6 py-4 text-green-900 font-extrabold text-2xl'>{children}</div>
-  )
-}
+    <div className="px-6 py-4 text-green-900 font-extrabold text-2xl">
+      {children}
+    </div>
+  );
+};
 
-export default Logo
+export default Logo;

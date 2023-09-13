@@ -1,9 +1,9 @@
 .wrapper {
-    -webkit-text-stroke: 3px #00202d;
-    color: #e3a02b;
-    font-family: "Nunito-Bold", Helvetica;
-    font-size: 40px;
-    font-weight: 700;
-    width: 24px;
-    height: 55px;
-  }
+  -webkit-text-stroke: 3px #00202d;
+  color: #e3a02b;
+  font-family: "Nunito-Bold", Helvetica;
+  font-size: 40px;
+  font-weight: 700;
+  width: 24px;
+  height: 55px;
+}

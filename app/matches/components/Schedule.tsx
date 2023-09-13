@@ -1,14 +1,12 @@
-"use client"
-import React, { useMemo } from 'react'
-import {FaAngleLeft, FaAngleRight} from 'react-icons/fa'
-import Box from './Box';
-import { usePathname } from 'next/navigation';
-interface ScheduleProps{
-    children : React.ReactNode;
+"use client";
+import React, { useMemo } from "react";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import Box from "./Box";
+import { usePathname } from "next/navigation";
+interface ScheduleProps {
+  children: React.ReactNode;
 }
-const Schedule: React.FC<ScheduleProps> = ({
-    children,
-}) => {
+const Schedule: React.FC<ScheduleProps> = ({ children }) => {
   const pathname = usePathname();
   const routes = useMemo(
     () => [
@@ -40,12 +38,13 @@ const Schedule: React.FC<ScheduleProps> = ({
     ],
     [pathname]
   );
-  return (<div className='flex justify-around py-4'>
-    {routes.map((item) => (
-            <Box key={item.label} {...item} />
-          ))}
+  return (
+    <div className="flex justify-around py-4">
+      {routes.map((item) => (
+        <Box key={item.label} {...item} />
+      ))}
     </div>
-  )
-}
+  );
+};
 
-export default Schedule
+export default Schedule;
