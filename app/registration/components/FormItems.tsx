@@ -7,6 +7,7 @@ interface FormItemsProps {
   inputType: string;
   accept?: string;
   name?: string;
+  itemList: string[];
 }
 
 const FormItems: React.FC<FormItemsProps> = ({
@@ -15,21 +16,34 @@ const FormItems: React.FC<FormItemsProps> = ({
   inputType,
   accept,
   name,
+  itemList,
 }) => {
   return (
     <div className="table-row space-x-2 md:space-x-0">
-      <label htmlFor="name" className="text-white py-5 table-cell">
+      <label htmlFor={name} className="py-5 table-cell">
         {label}
       </label>
-      <input
-        type={inputType}
+      {inputType === "dropdown" ? (
+        <select 
         placeholder={placeHolder}
-        accept={accept}
-        name={name}
-        required
-        autoComplete="off"
-        className="bg-background border border-cyan-700 rounded p-2 table-cell w-[94%]"
-      />
+        className="border border-gray-700 rounded p-2 table-cell w-[94%]">
+          {itemList.map((item, index) => (
+          <option key={index} value={item}>
+            {item}
+          </option>
+        ))}
+        </select>
+      ) : (
+        <input
+          type={inputType}
+          placeholder={placeHolder}
+          accept={accept}
+          name={name}
+          required
+          autoComplete="off"
+          className="border border-gray-700 rounded p-2 table-cell w-[94%]"
+        />
+      )}
     </div>
   );
 };
