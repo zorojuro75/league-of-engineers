@@ -59,16 +59,31 @@ const Form = () => {
         name: "id",
       },
       {
-        label: "Department",
-        placeHolder: "Enter your Department",
-        inputType: "text",
-        name: "department",
-      },
-      {
         label: "Email",
         placeHolder: "example@gmail.com",
         inputType: "email",
         name: "email",
+      },
+      {
+        label: "Image",
+        placeHolder: "",
+        inputType: "file",
+        accept: "image/*",
+        name: "image",
+      },
+      {
+        label: "Blood Group",
+        placeHolder: "Enter your Department",
+        inputType: "dropdown",
+        itemList: ["A+", "A-", "AB+", "AB-", "B+", "B-", "O+", "O-"],
+        name: "bloodgroup",
+      },
+      {
+        label: "Department",
+        placeHolder: "Enter your Department",
+        inputType: "dropdown",
+        itemList: ["CSE", "EEE", "PS"],
+        name: "department",
       },
       {
         label: "Past Tournaments",
@@ -84,11 +99,12 @@ const Form = () => {
         name: "position",
       },
       {
-        label: "Image",
-        placeHolder: "",
-        inputType: "file",
-        accept: "image/*",
-        name: "image",
+        label: "Rating",
+        placeHolder: "Enter your preferred playing position",
+        inputType: "dropdown",
+        itemList: ["Icon", "A", "B", "C"],
+        name: "rating",
+        info: "If you were to rate yourself among these four catagories: ICON > A > B > C. What would you choose?",
       },
       {
         label: "Transaction",
@@ -108,7 +124,7 @@ const Form = () => {
         <div>
           <form
             action={handleSubmit}
-            className="md:mx-auto mx-4 mb-5 md:table md:text-lg text-md md:w-[40%]"
+            className="md:mx-auto mx-4 mb-5 grid md:grid-cols-2 md:text-lg text-md md:w-[40%]"
           >
             {formItem.map((item) => (
               <FormItems
@@ -118,6 +134,7 @@ const Form = () => {
                 inputType={item.inputType}
                 accept={item.accept}
                 name={item.name}
+                info={item.info}
                 itemList={item.itemList || []}
               />
             ))}
@@ -132,8 +149,7 @@ const Form = () => {
             bg-orange-300 
             text-xl 
             font-bold 
-            table-caption  
-            caption-bottom 
+            col-span-2
             md:w-[30%] 
             w-[98%] 
             md:mx-auto"
