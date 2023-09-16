@@ -124,7 +124,7 @@ const Form = () => {
         <div>
           <form
             action={handleSubmit}
-            className="md:mx-auto mx-4 mb-5 grid md:grid-cols-2 md:text-lg text-md md:w-[40%]"
+            className="md:mx-auto mx-4 mb-5 md:grid md:grid-cols-2 md:text-lg text-md md:w-[40%]"
           >
             {formItem.map((item) => (
               <FormItems
