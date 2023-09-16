@@ -12,7 +12,7 @@ const Footer = ({ className }: { className?: string }) => {
     >
       <div className="gap-64">
         <p className="text-white">
-          &copy; 2033 LeagueOfEngineers All rights reserved.
+          &copy; 2023 LeagueOfEngineers All rights reserved.
         </p>
       </div>
       <div className="gap-4 flex">

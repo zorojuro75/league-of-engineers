@@ -6,7 +6,7 @@ import Footer from "./Footer";
 
 export default function Main() {
   return (
-    <div className="bg-[#f2f3f6] flex md:mx-0 mx-[20px]">
+    <div className="bg-[#f2f3f6] flex flex-col">
       <div className="text-black md:w-[38.96%] h-[40.53%] md:absolute">
         <div className="mt-[20.23%] md:ms-[16%]">
           <h1 className="md:w-[566px] md:h-[82px] text-[60px] font-bold">
@@ -33,7 +33,7 @@ export default function Main() {
           alt="Picture of the author"
         />
       </div>
-      <Footer className="absolute bottom-0" />
+      <Footer className="md:absolute sticky bottom-0" />
     </div>
   );
 }

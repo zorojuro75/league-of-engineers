@@ -87,7 +87,7 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
       </div>
       <div>
         {expanded ? (
-          <div className="md:absolute w-[100%] md:hidden bg-background mt-5">
+          <div className="absolute w-[100%] md:hidden bg-background">
             {routes.map((item) => (
               <MobileItem key={item.label} {...item} />
             ))}

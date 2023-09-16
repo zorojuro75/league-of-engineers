@@ -1,8 +1,6 @@
-import Navbar from "@/components/Navbar";
-import "./globals.css";
+import "../globals.css";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
-
 const font = Nunito({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
@@ -11,7 +9,7 @@ export const metadata: Metadata = {
   keywords: ["IUB", "CSE", "EEE", "Football", "Tournment", "Engineering"],
 };
 
-export default function RootLayout({
+export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
@@ -19,7 +17,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
-        <Navbar>{children}</Navbar>
+        <div>hello world</div>
       </body>
     </html>
   );
