@@ -26,20 +26,20 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
         href: "/about",
       },
       {
-        label: "Teams",
-        active: pathname === "/teams",
-        href: "/teams",
+        label: "Players",
+        active: pathname === "/players",
+        href: "/players",
       },
-      {
-        label: "Auction",
-        active: pathname === "/auction",
-        href: "/auction",
-      },
-      {
-        label: "Matches",
-        active: pathname === "/matches",
-        href: "/matches",
-      },
+      // {
+      //   label: "Auction",
+      //   active: pathname === "/auction",
+      //   href: "/auction",
+      // },
+      // {
+      //   label: "Matches",
+      //   active: pathname === "/matches",
+      //   href: "/matches",
+      // },
     ],
     [pathname]
   );
@@ -61,7 +61,7 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
         "
       >
         <Logo>
-          <img src="logo.png" alt="" className="md:h-16 w-full" />
+          <img src="league-logo-01.png" alt="" className="md:h-16 w-full" />
         </Logo>
         {/* Expand button for mobile view */}
         <button

@@ -4,7 +4,7 @@ import React from "react";
 const RegistrationProcess = () => {
   return (
     <>
-    <h1 className="text-center text-3xl font-bold my-[20px]">Read Before You Register</h1>
+    <h1 className="text-center text-4xl font-bold my-[20px]">Read Before You Register</h1>
     <div className="container text-xl md:mx-[100px] px-[20px] my-[10px]">
       <p>1. Make payment as per instructions.</p>
       <p>2. Fill out the registration form with the following details:</p>
@@ -21,10 +21,7 @@ const RegistrationProcess = () => {
         <li>- Upload your image </li>
         <li>
           - Transaction ID(TRX ID) or reference number from your payment
-          transaction. For agent-assisted mobile payments (bKash, Nagad, or
-          Rocket), obtain their account number and TRX ID. If the agent doesn&apos;t
-          provide a TRX ID, simply enter &apos;AGENT&apos; in the Transaction ID field
-          during registration.
+          transaction. For agent-assisted mobile payments (bKash or Nagad), do not forget to give the reference and obtain the TRX ID.
         </li>
         <li>- Double-check all information for accuracy.</li>
       </ul>

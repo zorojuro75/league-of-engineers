@@ -107,6 +107,13 @@ const Form = () => {
         info: "If you were to rate yourself among these four catagories: ICON > A > B > C. What would you choose?",
       },
       {
+        label: "Payment Via",
+        placeHolder: "",
+        inputType: "dropdown",
+        itemList: ["Bkash", "Nagad"],
+        name: "payment",
+      },
+      {
         label: "Transaction",
         placeHolder: "Enter transaction ID",
         inputType: "text",

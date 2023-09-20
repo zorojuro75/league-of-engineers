@@ -9,7 +9,7 @@ const Registration = () => {
       <RegistrationProcess />
       <Payment />
       <Form />
-      <Footer className="sticky bottom-0" />
+      <Footer />
     </>
   );
 };

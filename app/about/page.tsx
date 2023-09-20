@@ -12,7 +12,7 @@ const About = () => {
       <TournamentRules />
       <Overview />
       <Ready />
-      <Footer className="sticky bottom-0 z-10"/>
+      <Footer className="md:sticky bottom-0 z-10"/>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import { FaFacebook, FaInstagram, FaTwitter } from "react-icons/fa";
 import { twMerge } from "tailwind-merge";
+import Logo from "./Logo";
 
 const Footer = ({ className }: { className?: string }) => {
   return (
@@ -11,20 +12,13 @@ const Footer = ({ className }: { className?: string }) => {
       )}
     >
       <div className="gap-64">
-        <p className="text-white">
+        <p className="text-white md:block hidden">
           &copy; 2023 LeagueOfEngineers All rights reserved.
         </p>
       </div>
       <div className="gap-4 flex">
-        <a href="#" className="text-white">
-          <FaFacebook size={24} />
-        </a>
-        <a href="#" className="text-white">
-          <FaInstagram size={24} />
-        </a>
-        <a href="#" className="text-white">
-          <FaTwitter size={24} />
-        </a>
+        <Logo><img src="CSE_logo-01.png" alt="" className="h-16 w-full" /></Logo>
+        <Logo><img src="jukti-01.png" alt="" className="h-16 w-full" /></Logo>
       </div>
     </footer>
   );
