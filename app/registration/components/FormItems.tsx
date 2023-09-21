@@ -25,7 +25,7 @@ const FormItems: React.FC<FormItemsProps> = ({
       {info != null ? (
         <div className="col-span-2 text-red-700">{info}</div>
       ) : null}
-      <div className="border flex items-center">
+      <div className="border border-white flex items-center">
         <label htmlFor={name}>
           {label}
         </label>
@@ -35,6 +35,8 @@ const FormItems: React.FC<FormItemsProps> = ({
           <select
             placeholder={placeHolder}
             className="border border-gray-700 rounded p-2 w-[94%]"
+            name={name}
+            id={name}
           >
             {itemList.map((item, index) => (
               <option key={index} value={item}>

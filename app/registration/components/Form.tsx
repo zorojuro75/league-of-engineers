@@ -6,7 +6,7 @@ import supabase from "@/config/supabase";
 const Form = () => {
   const handleSubmit = async (formData: FormData) => {
     "use server";
-    console.log(formData.get("image"));
+    console.log(formData.get("department"));
 
     const file = formData.get("image");
 
@@ -15,23 +15,30 @@ const Form = () => {
         .from("images")
         .upload("players/" + formData.get("id"), file);
     }
-
-    const { data, error } = await supabase.from("form").insert([
-      {
-        name: formData.get("name"),
-        id: formData.get("id"),
-        department: formData.get("department"),
-        email: formData.get("email"),
-        pastTournament: formData.get("tournament"),
-        position: formData.get("position"),
-        transaction: formData.get("transaction"),
-      },
-    ]);
+    try{
+      const { data, error } = await supabase.from("formPlayer").insert([
+        {
+          name: formData.get("name"),
+          id: formData.get("id"),
+          department: formData.get("department"),
+          email: formData.get("email"),
+          pastTour: formData.get("tournament"),
+          position: formData.get("position"),
+          transaction: formData.get("transaction"),
+          bloodGroup: formData.get("bloodgroup"),
+          paymentVia: formData.get("payment"),
+          rating: formData.get("rating"),
+        },
+      ]);
+    }catch(error){
+      console.log({Message: "Data Could not be send"})
+    }
+    
     const imageUrl = supabase.storage
       .from("images")
       .getPublicUrl("players/" + formData.get("id")).data.publicUrl;
     const { data: img, error: imgE } = await supabase
-      .from("form")
+      .from("formPlayer")
       .update({ image: imageUrl })
       .eq("id", formData.get("id"));
 
@@ -131,7 +138,7 @@ const Form = () => {
         <div>
           <form
             action={handleSubmit}
-            className="md:mx-auto mx-4 mb-5 md:grid md:grid-cols-2 md:text-lg text-md md:w-[40%]"
+            className="md:mx-auto mx-4 mb-5 md:grid md:grid-cols-2 md:text-lg text-md md:w-[40%] gap-y-3 border border-white"
           >
             {formItem.map((item) => (
               <FormItems
