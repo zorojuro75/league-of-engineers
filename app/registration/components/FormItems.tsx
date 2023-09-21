@@ -25,8 +25,8 @@ const FormItems: React.FC<FormItemsProps> = ({
       {info != null ? (
         <div className="col-span-2 text-red-700">{info}</div>
       ) : null}
-      <div>
-        <label htmlFor={name} className="py-5 table-cell">
+      <div className="border flex items-center">
+        <label htmlFor={name}>
           {label}
         </label>
       </div>
@@ -50,7 +50,7 @@ const FormItems: React.FC<FormItemsProps> = ({
             name={name}
             required
             autoComplete="off"
-            className="border border-gray-700 rounded p-2 table-cell w-[94%]"
+            className="border border-gray-700 rounded p-2 w-[94%]"
           />
         )}
       </div>
