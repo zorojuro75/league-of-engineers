@@ -44,9 +44,9 @@ const Page = () => {
       }
     }
 
-    
     fetchPlayers();
-    if(players.length<=3)setClassname("absolute bottom-0");
+    if(players.length<=3)setClassname("md:absolute md:bottom-0");
+    else setClassname('')
   }, []); // Empty dependency array ensures this effect runs once on component mount
 
   return (
