@@ -91,7 +91,11 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
         {expanded ? (
           <div className="absolute w-[100%] md:hidden bg-background">
             {routes.map((item) => (
-              <MobileItem key={item.label} {...item} />
+              <MobileItem key={item.label} {...item}
+              onClick={() => {
+                setExpanded(false);
+              }}
+              />
             ))}
           </div>
         ) : null}

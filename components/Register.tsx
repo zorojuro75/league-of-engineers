@@ -19,5 +19,4 @@ const Register = ({ className }: ButtonProps) => {
     </Link>
   );
 };
-
 export default Register;

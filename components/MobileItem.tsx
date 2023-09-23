@@ -5,11 +5,13 @@ interface MobileItemProps {
   label: string;
   active?: boolean;
   href: string;
+  onClick?: () => void;
 }
 
-const MobileItem: React.FC<MobileItemProps> = ({ label, active, href }) => {
+const MobileItem: React.FC<MobileItemProps> = ({ label, active, href, onClick }) => {
   return (
     <Link
+    onClick={onClick}
       href={href}
       className={twMerge(
         `
