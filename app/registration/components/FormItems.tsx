@@ -34,7 +34,7 @@ const FormItems: React.FC<FormItemsProps> = ({
         {inputType === "dropdown" ? (
           <select
             placeholder={placeHolder}
-            className="border border-gray-700 rounded p-2 w-[94%]"
+            className="border border-gray-700 rounded p-2 w-[94%] bg-white"
             name={name}
             id={name}
           >
@@ -52,7 +52,7 @@ const FormItems: React.FC<FormItemsProps> = ({
             name={name}
             required
             autoComplete="off"
-            className="border border-gray-700 rounded p-2 w-[94%]"
+            className="border border-gray-700 rounded p-2 w-[94%] bg-white"
           />
         )}
       </div>

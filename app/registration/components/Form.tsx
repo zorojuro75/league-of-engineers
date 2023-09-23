@@ -138,7 +138,7 @@ const Form = () => {
         <div>
           <form
             action={handleSubmit}
-            className="md:mx-auto mx-4 mb-5 md:grid md:grid-cols-2 md:text-lg text-md md:w-[40%] gap-y-3 border border-white"
+            className="md:mx-auto mx-4 mb-5 md:grid md:grid-cols-2 md:text-lg text-md md:w-[100%] gap-y-3 border border-white"
           >
             {formItem.map((item) => (
               <FormItems
@@ -154,7 +154,7 @@ const Form = () => {
             ))}
 
             <div
-              className="
+              className=" relative
             border 
             text-center 
             py-[8px] 
