@@ -21,20 +21,15 @@ const RegButton = (props: Props) => {
         Click to Register
       </div>
       {isBlurred && (
-        <div
-          className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-black bg-opacity-50"
-          onClick={callForm}
-        >
-            
-          <div className="bg-white p-6 rounded-lg shadow-lg">
-          <div onClick={callForm} className="relative right-[-770px] text-xl font-bold cursor-pointer border-2 border-black w-[25px] h-[25px] flex justify-center items-center text-red-400">x</div>
-        {props.children}
-          </div>
-        </div>
-      )}
+  <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-black bg-opacity-50">
+    <div className="bg-white p-6 rounded-lg shadow-lg overflow-y-auto md:overflow-y-hidden md:max-h-[100vh] max-h-[80vh]">
+      <div onClick={callForm} className="relative md:right-[-770px] text-xl font-bold cursor-pointer border-2 border-black w-[25px] h-[25px] flex justify-center items-center text-red-400">x</div>
+      <div>{props.children}</div>
+    </div>
+  </div>
+)}
     </>
   );
 };
 
 export default RegButton;
-
