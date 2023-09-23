@@ -13,23 +13,19 @@ const NavbarItem: React.FC<NavbarItemProps> = ({ label, active, href, clickable 
     <>
     {
       clickable=='no'?<div
-      className={twMerge(
-        `
-        flex 
-        flex-row 
-        items-center 
-        w-full 
-        gap-x-4 
-        cursor-pointer
-        transition
-        text-white
-        py-1`,
-        active && "text-primary font-semibold"
-      )}
+      className='flex 
+      flex-row 
+      items-center 
+      w-full 
+      gap-x-4 
+      cursor-pointer
+      transition
+      text-gray-500
+      py-1'
     >
       {/* <p className="truncate w-100 hidden md:block text-[25px]">{label}</p> */}
       <div className="truncate text-gray-600 w-100 hidden md:block text-[20px]">
-        <p className={twMerge(active && "border-b-[2px]")}>{label}</p>
+        <p>{label}</p>
       </div>
     </div>:
     <Link
