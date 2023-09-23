@@ -11,7 +11,7 @@ const Rules = ({ icon, title, description }: rulesProps) => {
       <div className="rounded-[100%] bg-orange-400 w-[40px] h-[40px] flex items-center justify-center mb-[20px]">
         {React.createElement(icon, { fontSize: 30 })}
       </div>
-      <div className="font-bold text-[30px]">{title}</div>
+      <div className="font-bold text-[30px] text-center">{title}</div>
       <div className="text-center text-gray-500 font-[16px]">{description}</div>
     </div>
   );
