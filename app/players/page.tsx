@@ -51,7 +51,7 @@ const Page = () => {
 
   return (
     <>
-      <div className="mx-5">
+      <div className="mx-5 bg-black bg-opacity-5">
         <section className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-4 py-12">
           <div className="text-center pb-12">
             <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-900">
@@ -61,7 +61,7 @@ const Page = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-[8rem] gap-y-6">
             {players
               ? players.map((player) => (
-                  <div key={player.id} className="w-full rounded-lg px-14 py-16 flex flex-col justify-center items-center bg-orange-100">
+                  <div key={player.id} className="w-full rounded-lg px-14 py-16 flex flex-col justify-center items-center bg-white shadow-2xl">
                     <PlayerCard  player={player} />
                   </div>
                 ))
