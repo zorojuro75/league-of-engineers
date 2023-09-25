@@ -30,7 +30,7 @@ const Overview = () => {
   }, []);
 
   return (
-    <div className="md:flex items-center md:mx-[96px] md:py-[96px] py-[20px] md:px-[32px] mx-[20px]">
+    <div className="md:flex md:mx-[96px] md:py-[96px] py-[20px] md:px-[32px] mx-[20px]">
       <div className="md:w-[50%] md:gap-[32px]">
         <div className="md:h-[105px]">
           <h1 className="text-[48px]">Season 1</h1>

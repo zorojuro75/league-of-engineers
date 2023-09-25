@@ -6,7 +6,6 @@ import supabase from "@/config/supabase";
 const Form = () => {
   const handleSubmit = async (formData: FormData) => {
     "use server";
-    console.log(formData.get("department"));
 
     const file = formData.get("image");
 

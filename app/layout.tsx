@@ -2,6 +2,7 @@ import Navbar from "@/components/Navbar";
 import "./globals.css";
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
+import Footer from "@/components/Footer";
 
 const font = Nunito({ subsets: ["latin"], weight: ["400", "700"] });
 
@@ -20,6 +21,7 @@ export default function RootLayout({
     <html lang="en" className="bg-black bg-opacity-5">
       <body className={font.className}>
         <Navbar>{children}</Navbar>
+        <Footer />
       </body>
     </html>
   );

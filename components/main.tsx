@@ -1,13 +1,11 @@
 import React from "react";
-import Image from "next/image";
 import Register from "./Register";
 import styles from "./main.module.css";
-import Footer from "./Footer";
 
 export default function Main() {
   return (
     <div className=" flex flex-col ">
-      <div className="md:bg-[url('/kicking.png')] bg-no-repeat bg-contain bg-right">
+      <div className="md:bg-[url('/kicking.png')] bg-no-repeat bg-contain bg-right-bottom mt-12">
         <div className="text-black md:w-[38.96%] mx-[20px] ">
           <div className="mt-[20.23%] md:ms-[16%] ">
             <h1 className="md:w-[566px] md:h-[82px] md:text-[60px] text-4xl font-bold">
@@ -32,7 +30,6 @@ export default function Main() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

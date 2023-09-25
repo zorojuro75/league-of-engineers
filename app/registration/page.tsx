@@ -1,6 +1,5 @@
 
 import React from "react";
-import Footer from "@/components/Footer";
 import RegistrationProcess from "./components/RegistrationProcess";
 import Payment from "./components/Payment";
 import RegButton from "./components/RegButton";
@@ -19,7 +18,6 @@ const Registration = () => {
       <RegistrationProcess />
       <Payment />
       <RegButton> <Form/> </RegButton>
-      <Footer />
     </>
   );
 };

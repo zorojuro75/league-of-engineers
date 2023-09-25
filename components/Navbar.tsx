@@ -6,6 +6,7 @@ import NavbarItem from "./NavbarItem";
 import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
 import MobileItem from "./MobileItem";
 import Register from "./Register";
+import Footer from "./Footer";
 
 interface NavbarProps {
   children: React.ReactNode;
@@ -60,6 +61,7 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
         px-6
         justify-between
         bg-[#00212E]
+        sticky top-0
         "
       >
         <Logo>
@@ -103,7 +105,6 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
 
       <main
         className="
-        bg-white
         flex
         flex-col
         h-full

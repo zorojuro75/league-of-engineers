@@ -1,7 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import PlayerCard from "./components/PlayerCard";
-import Footer from "@/components/Footer";
 import supabase from "@/config/supabase";
 
 type Player = {
@@ -23,7 +22,6 @@ type Player = {
 const Page = () => {
   const [players, setPlayers] = useState<Player[]>([]);
   const [error, setError] = useState<string | null>(null);
-  const [classname, setClassname] = useState<string>('');
 
   useEffect(() => {
     async function fetchPlayers() {
@@ -45,13 +43,11 @@ const Page = () => {
     }
 
     fetchPlayers();
-    if(players.length<=3)setClassname("md:absolute md:bottom-0");
-    else setClassname('')
-  }, []); // Empty dependency array ensures this effect runs once on component mount
+  }, [players, setPlayers]); 
 
   return (
     <>
-      <div className="px-5 bg-black bg-opacity-5">
+      <div className="px-5 bg-black bg-opacity-5 h-screen">
         <section className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-4 py-12">
           <div className="text-center pb-12">
             <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-900">
@@ -69,7 +65,6 @@ const Page = () => {
           </div>
         </section>
       </div>
-      <Footer className={classname}/>
     </>
   );
 };
