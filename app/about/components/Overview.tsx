@@ -30,13 +30,13 @@ const Overview = () => {
   }, []);
 
   return (
-    <div className="md:flex md:mx-[96px] md:py-[96px] py-[20px] md:px-[32px] mx-[20px] md:h-[693px]">
+    <div className="md:flex md:mx-[96px] md:py-[96px] py-[20px] md:px-[32px] mx-[20px]">
       <div className="md:w-[50%] md:gap-[32px]">
         <div className="md:h-[105px]">
           <h1 className="text-[48px]">Season 1</h1>
           <h1 className="text-[16px]">At a glance</h1>
         </div>
-        <div className="md:h-[364px] text-justify">
+        <div className=" text-justify">
           League of Engineers Season 1 was a great football event. 16 teams from
           the School of Engineering, Technology, and Science (SETS) played. It
           was fun and exciting. After the first round, only eight teams got to
