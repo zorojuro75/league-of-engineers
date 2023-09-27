@@ -6,12 +6,13 @@ import NavbarItem from "./NavbarItem";
 import { RxCross2, RxHamburgerMenu } from "react-icons/rx";
 import MobileItem from "./MobileItem";
 import Register from "./Register";
-import Footer from "./Footer";
+import { twMerge } from "tailwind-merge";
 
 interface NavbarProps {
   children: React.ReactNode;
+  className?: string
 }
-const Navbar: React.FC<NavbarProps> = ({ children }) => {
+const Navbar: React.FC<NavbarProps> = ({ children, className }) => {
   const pathname = usePathname();
   const [expanded, setExpanded] = useState(false);
   const routes = useMemo(
@@ -48,14 +49,12 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
   );
   return (
     <div
-      className="
-      grow
-      flex
-      flex-col
-      "
+    className={twMerge(
+      "flex flex-col",
+      className
+    )}
     >
-      <div
-        className="
+      <div className=" grow-0
         flex 
         md:px-20 
         px-6
@@ -89,22 +88,24 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
         </div>
         <Register className="w-[150px] h-[60px] rounded-[8px] md:flex hidden" />
       </div>
-      <div>
+      <div className="grow-0">
         {expanded ? (
           <div className="absolute w-[100%] md:hidden bg-background">
             {routes.map((item) => (
-              <MobileItem key={item.label} {...item}
-              onClick={() => {
-                setExpanded(false);
-              }}
+              <MobileItem
+                key={item.label}
+                {...item}
+                onClick={() => {
+                  setExpanded(false);
+                }}
               />
             ))}
           </div>
         ) : null}
       </div>
 
-      <main
-        className="
+      <main className="grow-1
+        flex-1
         flex
         flex-col
         h-full
