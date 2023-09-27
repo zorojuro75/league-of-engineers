@@ -1,11 +1,78 @@
-import React from 'react'
-
-type Props = {}
-
+"use client";
+import supabase from '@/config/supabase';
+import React, { useState } from 'react'
+type Props = {
+  groupName: String,
+}
+type Team = {
+  teamID: number;
+  teamName: String;
+  played: number;
+  won: number;
+  lost: number;
+  scored: number;
+  drawn: number;
+  conceded: number;
+  difference: number;
+  points: number;
+};
 const Team = (props: Props) => {
+  const [teams, setTeams] = useState<Team[]>([]);
+  async function fetchData(groupName:String) {
+    try{
+      const {data, error} = await supabase.from('TeamTable').select('*').eq('groupName', groupName);
+      if(error){
+        throw error;
+      }else{
+        const sortedData = data.sort((a, b) => {
+          if (b.points !== a.points) {
+            return b.points - a.points;
+          } else if (b.difference !== a.difference) {
+            return b.difference - a.difference;
+          }
+          return b.scored - a.scored;
+        });
+
+        setTeams(sortedData);
+      }
+    }catch(error){
+      console.log('error');
+    }
+  }
+  fetchData(props.groupName);
   return (
-    <div>team</div>
+    teams.map((team)=>(
+      <React.Fragment key={team.teamID}>
+                  <div className="text-xl text-gray-800 col-span-2">
+                    &nbsp; &nbsp;{team.teamName}
+                  </div>
+                  <div className="text-xl text-gray-800">
+                    {team? team.played: 0}
+                  </div>
+                  <div className="text-xl text-gray-800">
+                    {team ? team.won : 0}
+                  </div>
+                  <div className="text-xl text-gray-800">
+                    {team ? team.lost : 0}
+                  </div>
+                  <div className="text-xl text-gray-800">
+                    {team ? team.drawn : 0}
+                  </div>
+                  <div className="text-xl text-gray-800">
+                    {team ? team.scored : 0}
+                  </div>
+                  <div className="text-xl text-gray-800">
+                    {team ? team.conceded : 0}
+                  </div>
+                  <div className="text-xl text-gray-800">
+                    {team ? team.difference : 0}
+                  </div>
+                  <div className="text-xl text-gray-800">
+                    {team ? team.points : 0}
+                  </div>
+                </React.Fragment>
+    ))
   )
 }
 
-export default Team
+export default Team;
