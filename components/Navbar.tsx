@@ -49,7 +49,7 @@ const Navbar: React.FC<NavbarProps> = ({ children }) => {
   return (
     <div
       className="
-      bg-black bg-opacity-5
+      grow
       flex
       flex-col
       "
