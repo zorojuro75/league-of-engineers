@@ -39,10 +39,9 @@ const Navbar: React.FC<NavbarProps> = ({ children, className }) => {
         clickable: "no",
       },
       {
-        label: "Matches",
-        active: pathname === "/matches",
-        href: "/matches",
-        clickable: "no",
+        label: "Group",
+        active: pathname === "/groups",
+        href: "/groups",
       },
     ],
     [pathname]
@@ -61,6 +60,7 @@ const Navbar: React.FC<NavbarProps> = ({ children, className }) => {
         justify-between
         bg-[#00212E]
         sticky top-0
+        z-10
         "
       >
         <Logo>
@@ -88,7 +88,7 @@ const Navbar: React.FC<NavbarProps> = ({ children, className }) => {
         </div>
         <Register className="w-[150px] h-[60px] rounded-[8px] md:flex hidden" />
       </div>
-      <div className="grow-0">
+      <div className="grow-0 z-10">
         {expanded ? (
           <div className="fixed inset w-full  md:hidden bg-background">
             {routes.map((item) => (

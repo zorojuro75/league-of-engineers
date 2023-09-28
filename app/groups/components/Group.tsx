@@ -43,6 +43,7 @@ const Group = (props: Props) => {
             <div>Conceded</div>
             <div>Difference</div>
             <div>Points</div>
+            <div className="col-span-10 border-b border-gray-400"></div>
             <Team groupName={group.groupName}/>
           </div>
         </div>
