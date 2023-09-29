@@ -1,12 +1,14 @@
-import React, { useMemo } from "react";
+'use client'
+import React, { useMemo, useState } from "react";
 import FormItems from "./FormItems";
-import { redirect } from "next/navigation";
 import supabase from "@/config/supabase";
 
 const Form = () => {
-  const handleSubmit = async (formData: FormData) => {
-    "use server";
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
+  const handleSubmit = async (formData: FormData) => {
+    setIsLoading(true); 
     const file = formData.get("image");
 
     if (file) {
@@ -29,6 +31,8 @@ const Form = () => {
           rating: formData.get("rating"),
         },
       ]);
+      setIsLoading(false);
+      setIsSubmitted(true);
     }catch(error){
       console.log({Message: "Data Could not be send"})
     }
@@ -40,15 +44,6 @@ const Form = () => {
       .from("formPlayer")
       .update({ image: imageUrl })
       .eq("id", formData.get("id"));
-
-    // Logic to save image in the storage -- Done
-
-    // get the link of the image in the storge and set it in the database -- Done
-
-    // Optional: Display a success message or perform any other actions
-
-    // For now, let's just clear the form fields -- Kinda Done
-    redirect("/registration");
   };
   var formItem = useMemo(
     () => [
@@ -135,42 +130,51 @@ const Form = () => {
       </h1>
       <div className="flex flex-col justify-center">
         <div>
-          <form
-            action={handleSubmit}
-            className="md:mx-auto mx-4 mb-5 md:grid md:grid-cols-2 md:text-lg text-md md:w-[100%] gap-y-3 border border-white"
-          >
-            {formItem.map((item) => (
-              <FormItems
-                key={item.label}
-                label={item.label}
-                placeHolder={item.placeHolder}
-                inputType={item.inputType}
-                accept={item.accept}
-                name={item.name}
-                info={item.info}
-                itemList={item.itemList || []}
-              />
-            ))}
-
-            <div
-              className=" relative
-            border 
-            text-center 
-            py-[8px] 
-            mt-5 
-            rounded-[5px] 
-            bg-orange-300 
-            hover:bg-orange-500 
-            text-xl 
-            font-bold 
-            col-span-2
-            md:w-[30%] 
-            w-[98%] 
-            md:mx-auto"
-            >
-              <input type="submit" name="Submit" />
+        {isSubmitted ? (
+            <div className="text-center text-green-700 font-bold mb-3">
+              Form submitted successfully!
             </div>
-          </form>
+          ): isLoading ? (
+            <div className="text-center">Loading...</div> // Show loading animation here
+          ):<form
+          action={handleSubmit}
+          className="md:mx-auto mx-4 mb-5 md:grid md:grid-cols-2 md:text-lg text-md md:w-[100%] gap-y-3 border border-white"
+        >
+          {formItem.map((item) => (
+            <FormItems
+              key={item.label}
+              label={item.label}
+              placeHolder={item.placeHolder}
+              inputType={item.inputType}
+              accept={item.accept}
+              name={item.name}
+              info={item.info}
+              itemList={item.itemList || []}
+            />
+          ))}
+
+          <div
+            className=" relative
+          border 
+          text-center 
+          py-[8px] 
+          mt-5 
+          rounded-[5px] 
+          bg-orange-300 
+          hover:bg-orange-500 
+          text-xl 
+          font-bold 
+          col-span-2
+          md:w-[30%] 
+          w-[98%] 
+          md:mx-auto
+          cursor-pointer
+          "
+          >
+            <input type="submit" name="Submit" className="cursor-pointer"/>
+          </div>
+        </form>}
+          
         </div>
       </div>
     </>

@@ -38,7 +38,7 @@ const RegButton = (props: Props) => {
           >
             <div
               onClick={callForm}
-              className="relative md:right-[-770px] text-xl font-bold cursor-pointer border-2 border-black w-[25px] h-[25px] flex justify-center items-center text-red-400"
+              className="relative text-xl font-bold cursor-pointer border-2 border-black w-[25px] h-[25px] flex justify-center items-center text-red-400"
             >
               x
             </div>
