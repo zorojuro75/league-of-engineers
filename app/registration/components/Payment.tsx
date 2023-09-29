@@ -33,7 +33,7 @@ const Payment = () => {
           <li>- For bKash, use the bKash app or dial *247#.</li>
           <li>- For Nagad, use the Nagad app or dial *167#.</li>
         </ul>
-        <p>2. Select &apos;Send Money.&apos;</p>
+        <p>2. Select &apos;Send  Money.&apos;</p>
 
         <p>
           3. Enter the provided account number based on your chosen payment
@@ -44,7 +44,7 @@ const Payment = () => {
             - For bKash or Nagad use the provided Account Number.
           </li>
         </ul>
-        <p>4. Input the exact bill amount.</p>
+        <p>4. Input the exact bill amount(200tk).</p>
         <p>
           5. Enter your IUB ID as reference.
         </p>
