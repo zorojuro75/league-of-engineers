@@ -6,8 +6,8 @@ export default function Main() {
   return (
     <div className="flex flex-col flex-1 grow-1">
       <div className="flex-1 grow-1 md:bg-[url('/kicking.png')] bg-no-repeat bg-contain bg-right-bottom mt-12">
-        <div className="text-black md:w-[38.96%] mx-[20px] ">
-          <div className="mt-[20.23%] md:ms-[16%] ">
+        <div className="text-black md:w-[38.96%] mx-[20px]">
+          <div className="md:ms-[16%] ">
             <h1 className="md:w-[566px] md:h-[82px] md:text-[60px] text-4xl font-bold">
               League of Engineers
             </h1>

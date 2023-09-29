@@ -21,7 +21,7 @@ const RegButton = (props: Props) => {
         Click to Register
       </div>
       {isBlurred && (
-        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-black bg-opacity-50 backdrop-fixed">
+        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-sm bg-black bg-opacity-50 backdrop-fixed z-50">
           <motion.div
             initial={{
               scale: 0.5,
