@@ -101,7 +101,7 @@ const Form = () => {
         label: "Preferred Position",
         placeHolder: "Enter your preferred playing position",
         inputType: "dropdown",
-        itemList: ["Forward", "Midfielder", "Center Back", "Goal Keeper"],
+        itemList: ["Forward", "Midfielder", "Defender", "Goal Keeper"],
         name: "position",
       },
       {
@@ -160,6 +160,7 @@ const Form = () => {
             mt-5 
             rounded-[5px] 
             bg-orange-300 
+            hover:bg-orange-500 
             text-xl 
             font-bold 
             col-span-2

@@ -1,4 +1,3 @@
-
 import React from "react";
 import RegistrationProcess from "./components/RegistrationProcess";
 import Payment from "./components/Payment";
@@ -10,14 +9,16 @@ const Registration = () => {
   const toggleBlur = () => {
     const body = document?.querySelector("body"); // You can select the appropriate container
     body?.classList.toggle("blur", !isBlurred);
-    
   };
-  
+
   return (
     <>
       <RegistrationProcess />
       <Payment />
-      <RegButton> <Form/> </RegButton>
+      <div className="text-2xl font-semibold md:mx-auto">Player Registration fee 200tk</div>
+      <RegButton>
+        <Form />
+      </RegButton>
     </>
   );
 };

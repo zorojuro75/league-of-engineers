@@ -38,6 +38,7 @@ const FormItems: React.FC<FormItemsProps> = ({
             name={name}
             id={name}
           >
+
             {itemList.map((item, index) => (
               <option key={index} value={item}>
                 {item}
