@@ -16,12 +16,12 @@ const Payment = () => {
         <p>A. bKash:</p>
         <ul className="ps-[20px]">
           <li>- Account Type: Personal</li>
-          <li>- Account Number: 01978634205</li>
+          <li>- Account Number: 01715069921</li>
         </ul>
         <p>B. Nagad:</p>
         <ul className="ps-[20px]">
           <li>- Account Type: Personal</li>
-          <li>- Account Number: 01978634205</li>
+          <li>- Account Number: 01715069921</li>
         </ul>
         <p className="text-2xl font-semibold py-5">Payment Process (bKash, Nagad):</p>
 
