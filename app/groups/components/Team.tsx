@@ -30,8 +30,12 @@ const Team = (props: Props) => {
             return b.points - a.points;
           } else if (b.difference !== a.difference) {
             return b.difference - a.difference;
+          } else if (b.scored !== a.scored) {
+            return b.scored - a.scored;
+          } else {
+            // Sort by team name if all other criteria are the same
+            return a.teamName.localeCompare(b.teamName);
           }
-          return b.scored - a.scored;
         });
 
         setTeams(sortedData);
