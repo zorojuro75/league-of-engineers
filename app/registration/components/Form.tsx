@@ -24,6 +24,7 @@ const Form = () => {
           id: formData.get("id"),
           department: formData.get("department"),
           email: formData.get("email"),
+          phone: formData.get("phone"),
           pastTour: formData.get("tournament"),
           position: formData.get("position"),
           transaction: formData.get("transaction"),
@@ -65,6 +66,12 @@ const Form = () => {
         placeHolder: "example@gmail.com",
         inputType: "email",
         name: "email",
+      },
+      {
+        label: "Phone No",
+        placeHolder: "Enter your phone number",
+        inputType: "phone",
+        name: "phone",
       },
       {
         label: "Image",
