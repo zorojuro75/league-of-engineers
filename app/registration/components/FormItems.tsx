@@ -40,7 +40,7 @@ const FormItems: React.FC<FormItemsProps> = ({
           >
             {itemList.map((item, index) =>
               item == "" ? (
-                <option value="" selected disabled hidden>
+                <option key={index} value="" selected disabled hidden>
                   Select an option
                 </option>
               ) : (
