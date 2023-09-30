@@ -8,6 +8,7 @@ interface FormItemsProps {
   accept?: string;
   name?: string;
   info?: string;
+  icon?: React.ReactNode;
   itemList: string[];
 }
 
@@ -18,6 +19,7 @@ const FormItems: React.FC<FormItemsProps> = ({
   accept,
   name,
   info,
+  icon,
   itemList,
 }) => {
   return (

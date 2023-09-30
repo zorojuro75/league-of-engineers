@@ -2,6 +2,7 @@
 import React, { useMemo, useState } from "react";
 import FormItems from "./FormItems";
 import supabase from "@/config/supabase";
+import {FaRegLightbulb} from 'react-icons/fa'
 
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -119,6 +120,7 @@ const Form = () => {
         placeHolder: "Enter transaction ID",
         inputType: "text",
         name: "transaction",
+        info: "Send 200tk registration fee to 01715069921 via bkash or nagad and enter the TRX ID below",
       },
     ],
     []
