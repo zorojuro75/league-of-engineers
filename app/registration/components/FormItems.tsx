@@ -26,24 +26,27 @@ const FormItems: React.FC<FormItemsProps> = ({
         <div className="col-span-2 text-red-700">{info}</div>
       ) : null}
       <div className="border border-white flex items-center">
-        <label htmlFor={name}>
-          {label}
-        </label>
+        <label htmlFor={name}>{label}</label>
       </div>
       <div>
         {inputType === "dropdown" ? (
           <select
-            placeholder={placeHolder}
             className="border border-gray-700 rounded p-2 w-[94%] bg-white"
             name={name}
             id={name}
+            required
           >
-
-            {itemList.map((item, index) => (
-              <option key={index} value={item}>
-                {item}
-              </option>
-            ))}
+            {itemList.map((item, index) =>
+              item == "" ? (
+                <option value="" selected disabled hidden>
+                  Select an option
+                </option>
+              ) : (
+                <option key={index} value={item}>
+                  {item}
+                </option>
+              )
+            )}
           </select>
         ) : (
           <input
