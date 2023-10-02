@@ -8,10 +8,10 @@ export default function Main() {
       <div className="flex-1 grow-1 md:bg-[url('/kicking.png')] bg-no-repeat bg-contain bg-right-bottom mt-12">
         <div className="text-black md:w-[38.96%] mx-[20px]">
           <div className="md:ms-[16%] ">
-            <h1 className="md:w-[566px] md:h-[82px] md:text-[60px] text-4xl font-bold">
+            <h1 className="md:w-[566px] md:text-[60px] text-4xl font-bold">
               League of Engineers
             </h1>
-            <p className="md:w-[150px] h-[55px] md:text-[32px] text-2xl font-semibold">
+            <p className="md:w-[150px] md:text-[32px] text-2xl font-semibold">
               Season <span className={`${styles.wrapper}`}>2</span>
             </p>
             <p className="my-[22px] md:w-[403px] text-[#667085] text-[20px]">
