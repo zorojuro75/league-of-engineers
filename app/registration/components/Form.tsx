@@ -2,7 +2,6 @@
 import React, { useMemo, useState } from "react";
 import FormItems from "./FormItems";
 import supabase from "@/config/supabase";
-import {FaRegLightbulb} from 'react-icons/fa'
 
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -22,6 +21,7 @@ const Form = () => {
         {
           name: formData.get("name"),
           id: formData.get("id"),
+          gender: formData.get("gender"),
           department: formData.get("department"),
           email: formData.get("email"),
           phone: formData.get("phone"),
@@ -60,6 +60,13 @@ const Form = () => {
         placeHolder: "Enter your IUB ID",
         inputType: "number",
         name: "id",
+      },
+      {
+        label: "Gender",
+        placeHolder: "Enter your Gender",
+        inputType: "dropdown",
+        itemList: ["","Male", "Female"],
+        name: "gender",
       },
       {
         label: "Email",

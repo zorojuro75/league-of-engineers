@@ -21,6 +21,7 @@ type Player = {
 
 const Page = () => {
   const [players, setPlayers] = useState<Player[]>([]);
+  const [femalePlayers, setFemalePlayers] = useState<Player[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
@@ -29,7 +30,9 @@ const Page = () => {
         const { data, error } = await supabase
           .from("formPlayer")
           .select()
-          .eq("verified", true); // Note: Assuming 'verified' is a boolean field
+          .eq("verified", true)
+          .eq("gender", "Male")
+          
 
         if (error) {
           setError(error.message);
@@ -41,9 +44,29 @@ const Page = () => {
         console.error("An unexpected error occurred:", e);
       }
     }
+    async function fetchFemalePlayers() {
+      try {
+        const { data, error } = await supabase
+          .from("formPlayer")
+          .select()
+          .eq("verified", true)
+          .eq("gender", "Female")
+          
+
+        if (error) {
+          setError(error.message);
+        } else {
+          setFemalePlayers(data || []);
+        }
+      } catch (e) {
+        setError("An unexpected error occurred.");
+        console.error("An unexpected error occurred:", e);
+      }
+    }
 
     fetchPlayers();
-  }, [players, setPlayers]); 
+    fetchFemalePlayers();
+  }, [players, setPlayers, femalePlayers, setFemalePlayers]); 
 
   return (
     <>
@@ -57,6 +80,20 @@ const Page = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-[8rem] gap-y-6">
             {players
               ? players.map((player) => (
+                  <div key={player.id} className="w-full rounded-lg px-14 py-16 flex flex-col justify-center items-center bg-white shadow-2xl">
+                    <PlayerCard  player={player} />
+                  </div>
+                ))
+              : null}
+          </div>
+          <div className="text-center pb-12">
+            <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-900">
+              Meet Our Female Players
+            </h1>
+          </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-x-[8rem] gap-y-6">
+            {femalePlayers
+              ? femalePlayers.map((player) => (
                   <div key={player.id} className="w-full rounded-lg px-14 py-16 flex flex-col justify-center items-center bg-white shadow-2xl">
                     <PlayerCard  player={player} />
                   </div>
