@@ -20,7 +20,7 @@ const ToggleButton = (props: Props) => {
         onClick={() => props.setTabs("Female")}
         className={`${
           props.selectedTab === "Female" ? "bg-[#E3A02B]" : ""
-        } h-full w-1/3 flex items-center justify-center border-x-4 border-yellow-800`}
+        } h-full w-1/3 flex items-center justify-center border-x`}
       >
         Female
       </div>
