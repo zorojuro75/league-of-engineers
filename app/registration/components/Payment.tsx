@@ -8,7 +8,7 @@ const Payment = () => {
       </h1>
       <div className="container text-xl md:mx-[100px] px-[20px] my-[10px]">
         <p>
-          Registration Procedure for League of Engineers Season 2, including
+          Registration Procedure for League of SETS Season 2, including
           Payment Options for bKash, Nagad:
         </p>
         <p>Follow these steps for a smooth registration process:</p>

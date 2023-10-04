@@ -37,7 +37,7 @@ const Overview = () => {
           <h1 className="text-[16px]">At a glance</h1>
         </div>
         <div className=" text-justify">
-          League of Engineers Season 1 was a great football event. 16 teams from
+          League of SETS Season 1 was a great football event. 16 teams from
           the School of Engineering, Technology, and Science (SETS) played. It
           was fun and exciting. After the first round, only eight teams got to
           the quarter-finals. There were cool games like Team Butterfly vs

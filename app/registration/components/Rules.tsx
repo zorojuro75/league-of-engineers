@@ -3,7 +3,7 @@ import React from "react";
 const Rules = () => {
   return (
     <div className="container mx-auto space-y-8">
-     <h1 className="text-3xl text-red-900 text-center"> Welcome to League of Engineers Season 2! Here are the simple rules:</h1> 
+     <h1 className="text-3xl text-red-900 text-center"> Welcome to League of SETS Season 2! Here are the simple rules:</h1> 
       <p>
         1. <strong>Who Can Play</strong>: Only students from SETS can
         participate. You can&apos;t use your club or group names or logos on your
