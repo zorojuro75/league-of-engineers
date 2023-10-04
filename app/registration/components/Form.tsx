@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useMemo, useState } from "react";
 import FormItems from "./FormItems";
 import supabase from "@/config/supabase";
@@ -6,7 +6,10 @@ import supabase from "@/config/supabase";
 const Form = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-
+  const [selectedGender, setSelectedGender] = useState("");
+  const handleGenderChange = (gender: string) => {
+    setSelectedGender(gender);
+  };
   const handleSubmit = async (formData: FormData) => {
     setIsLoading(true);
     const file = formData.get("image");
@@ -36,7 +39,7 @@ const Form = () => {
       setIsLoading(false);
       setIsSubmitted(true);
     } catch (error) {
-      console.log({ Message: "Data Could not be send" });
+      console.log({ Message: "Data Could not be sent" });
     }
 
     const imageUrl = supabase.storage
@@ -65,7 +68,7 @@ const Form = () => {
         label: "Gender",
         placeHolder: "Enter your Gender",
         inputType: "dropdown",
-        itemList: ["","Male", "Female"],
+        itemList: ["", "Male", "Female"],
         name: "gender",
       },
       {
@@ -91,14 +94,14 @@ const Form = () => {
         label: "Blood Group",
         placeHolder: "Enter your Department",
         inputType: "dropdown",
-        itemList: ["","A+", "A-", "AB+", "AB-", "B+", "B-", "O+", "O-"],
+        itemList: ["", "A+", "A-", "AB+", "AB-", "B+", "B-", "O+", "O-"],
         name: "bloodgroup",
       },
       {
         label: "Department",
         placeHolder: "Enter your Department",
         inputType: "dropdown",
-        itemList: ["","CSE", "EEE", "PS"],
+        itemList: ["", "CSE", "EEE", "PS"],
         name: "department",
       },
       {
@@ -111,22 +114,22 @@ const Form = () => {
         label: "Preferred Position",
         placeHolder: "Enter your preferred playing position",
         inputType: "dropdown",
-        itemList: ["","Forward", "Midfielder", "Defender", "Goal Keeper"],
+        itemList: ["", "Forward", "Midfielder", "Defender", "Goal Keeper"],
         name: "position",
       },
       {
         label: "Rating",
         placeHolder: "Enter your preferred playing position",
         inputType: "dropdown",
-        itemList: ["","Icon", "A", "B", "C"],
+        itemList: ["", "Icon", "A", "B", "C"],
         name: "rating",
-        info: "If you were to rate yourself among these four catagories: ICON > A > B > C. What would you choose?",
+        info: "If you were to rate yourself among these four categories: ICON > A > B > C. What would you choose?",
       },
       {
         label: "Payment Via",
         placeHolder: "",
         inputType: "dropdown",
-        itemList: ["","Bkash", "Nagad"],
+        itemList: ["", "Bkash", "Nagad"],
         name: "payment",
       },
       {
@@ -139,6 +142,7 @@ const Form = () => {
     ],
     []
   );
+  
   return (
     <>
       <h1 className="text-center text-3xl font-bold my-[20px]">
@@ -159,16 +163,20 @@ const Form = () => {
               className="md:mx-auto mx-4 mb-5 md:grid md:grid-cols-2 md:text-lg text-md md:w-[100%] gap-y-3 border border-white"
             >
               {formItem.map((item) => (
-                <FormItems
-                  key={item.label}
-                  label={item.label}
-                  placeHolder={item.placeHolder}
-                  inputType={item.inputType}
-                  accept={item.accept}
-                  name={item.name}
-                  info={item.info}
-                  itemList={item.itemList || []}
-                />
+                (item.name === "payment" || item.name === "transaction") && selectedGender === "Female" ? null : (
+                  <FormItems
+                    key={item.label}
+                    label={item.label}
+                    placeHolder={item.placeHolder}
+                    inputType={item.inputType}
+                    accept={item.accept}
+                    name={item.name}
+                    info={item.info}
+                    itemList={item.itemList || []}
+                    selectedGender={selectedGender}
+                    onGenderChange={handleGenderChange}
+                  />
+                )
               ))}
 
               <div
@@ -179,7 +187,7 @@ const Form = () => {
           mt-5 
           rounded-[5px] 
           bg-orange-300 
-          hover:bg-orange-500 
+          hover.bg-orange-500 
           text-xl 
           font-bold 
           col-span-2

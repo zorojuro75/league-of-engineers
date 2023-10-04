@@ -6,10 +6,11 @@ interface FormItemsProps {
   label: string;
   inputType: string;
   accept?: string;
-  name?: string;
+  name: string;
   info?: string;
-  icon?: React.ReactNode;
   itemList: string[];
+  selectedGender: string;
+  onGenderChange: (gender: string) => void;
 }
 
 const FormItems: React.FC<FormItemsProps> = ({
@@ -19,8 +20,9 @@ const FormItems: React.FC<FormItemsProps> = ({
   accept,
   name,
   info,
-  icon,
   itemList,
+  selectedGender,
+  onGenderChange,
 }) => {
   return (
     <>
@@ -31,7 +33,30 @@ const FormItems: React.FC<FormItemsProps> = ({
         <label htmlFor={name}>{label}</label>
       </div>
       <div>
-        {inputType === "dropdown" ? (
+        {inputType === "dropdown" && label === "Gender" ? (
+          <select
+            className="border border-gray-700 rounded p-2 w-[94%] bg-white"
+            name={name}
+            id={name}
+            required
+            onChange={(e) => {
+              onGenderChange(e.target.value);
+            }}
+          >
+            {itemList.map((item, index) =>
+              item == "" ? (
+                <option key={index} value="" selected disabled hidden>
+                  Select an option
+                </option>
+              ) : (
+                <option key={index} value={item}>
+                  {item}
+                </option>
+              )
+            )}
+          </select>
+        ):
+        inputType === "dropdown" ? (
           <select
             className="border border-gray-700 rounded p-2 w-[94%] bg-white"
             name={name}
