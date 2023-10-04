@@ -19,6 +19,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className="bg-black bg-opacity-10">
+      <head>
+        <link rel="shortcut icon" href="/favicon.png" type="image/x-icon" />
+      </head>
       <body className={font.className}>
         <div className="flex flex-col min-h-screen">
 
