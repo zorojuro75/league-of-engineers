@@ -86,7 +86,7 @@ const Page = () => {
                 ))
               : null}
           </div>
-          <div className="text-center pb-12">
+          <div className="text-center mt-10 p-12">
             <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-900">
               Meet Our Female Players
             </h1>
