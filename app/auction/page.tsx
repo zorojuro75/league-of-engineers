@@ -25,7 +25,7 @@ const Auction = () => {
           for the rest of the auction.
           <div>
             <span className="font-semibold">Example:</span> Think of the Icon
-            player as the team's superstar.
+            player as the team&apos;s superstar.
           </div>
         </div>
         <div>
@@ -50,15 +50,15 @@ const Auction = () => {
           </div>
         </div>
         <div>
-          <span className="font-semibold">Maximum Bid Limit:</span> There's a
+          <span className="font-semibold">Maximum Bid Limit:</span> There&apos;s a
           maximum limit on how many LoE Points a team can bid for a player. This
           limit ensures that even after a successful bid, the team must have
           enough points left to assemble a complete team of at least 8 players.
-          If their remaining points don't allow for that, they have to choose a
+          If their remaining points don&apos;t allow for that, they have to choose a
           Category C player at a fixed price of 200 LoE Points.
           <div>
             <span className="font-semibold">Example:</span> If your team has
-            4000 LoE Points left, you can't bid more than 1000 LoE Points for a
+            4000 LoE Points left, you can&apos;t bid more than 1000 LoE Points for a
             player because you need to have enough left to get 8 players in
             total.
           </div>
@@ -81,17 +81,17 @@ const Auction = () => {
           least 8 players before the auction continues.
           <div>
             <span className="font-semibold">Example:</span> If your team already
-            has 8 players, you can't bid on more players until all other teams
+            has 8 players, you can&apos;t bid on more players until all other teams
             also have 8 players.
           </div>
         </div>
         <div>
-          <span className="font-semibold">Player Category Balance:</span> It's
+          <span className="font-semibold">Player Category Balance:</span> It&apos;s
           necessary to buy players from every category. otherwise, having a
           minimum of one player from each category is a must. Keep this in mind
           during the auction.
           <div>
-            <span className="font-semibold">Example:</span> Let's say Alex from
+            <span className="font-semibold">Example:</span> Let&apos;s say Alex from
             the Icon category is bought with 3100 LoE Points, leaving the
             manager with 1900 LoE Points. In this case, the manager must acquire
             7 more players from Category A, B, and C somehow to ensure a
@@ -100,13 +100,13 @@ const Auction = () => {
         </div>
         <div>
           <span className="font-semibold">Manager Playing:</span> Managers have
-          the option to play as a player in their team's lineup, but it comes at
+          the option to play as a player in their team&apos;s lineup, but it comes at
           a cost. They need to deduct 500 LoE Points from their total points if
           they choose to play. In this case, the team will require to buy 7 more
           players instead of 8 because the manager will be playing.
           <div>
             <span className="font-semibold">Example:</span> If you decide to
-            play as a manager-player, you'll have 500 fewer LoE Points available
+            play as a manager-player, you&apos;ll have 500 fewer LoE Points available
             for bidding, and your team will need to purchase 7 more players to
             complete the lineup.
           </div>
