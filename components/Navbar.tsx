@@ -36,7 +36,6 @@ const Navbar: React.FC<NavbarProps> = ({ children, className }) => {
         label: "Auction",
         active: pathname === "/auction",
         href: "/auction",
-        clickable: "no",
       },
       {
         label: "Group",
