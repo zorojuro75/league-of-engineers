@@ -7,7 +7,7 @@ import Footer from "@/components/Footer";
 const font = Nunito({ subsets: ["latin"], weight: ["400", "700"] });
 
 export const metadata: Metadata = {
-  title: "League of SETS",
+  title: "League of Engineers",
   description: "IUB Engineering School Football tournament",
   keywords: ["IUB", "CSE", "EEE", "Football", "Tournment", "Engineering"],
 };

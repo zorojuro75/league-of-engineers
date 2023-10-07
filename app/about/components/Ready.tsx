@@ -7,7 +7,7 @@ const Ready = () => {
       <div className="md:h-[82px] md:w-[865px]">
         <h1 className="text-[32px] font-semibold ">Ready to play?</h1>
         <p className="text-[#667085] font-normal text-[20px]">
-          Register now to become a part of the League of SETS tournament as
+          Register now to become a part of the League of Engineers tournament as
           a player.
         </p>
       </div>

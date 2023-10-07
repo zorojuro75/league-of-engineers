@@ -4,7 +4,7 @@ const Auction = () => {
   return (
     <div className="w-full max-w-7xl mx-auto md:px-0 px-5 pb-5">
       <div className="text-center text-3xl font-bold py-10 ">
-        Auction rules for League of SETS Season 2
+        Auction rules for League of Engineers Season 2
       </div>
       <div className="flex flex-col gap-y-5 text-lg text-justify">
         <div>
@@ -114,7 +114,7 @@ const Auction = () => {
         <div>
           So, think wisely, bid smart, and make sure you have a full team of 8
           players. These rules keep the game fun and fair for everyone in the
-          League of SETS Season 2!
+          League of Engineers Season 2!
         </div>
       </div>
     </div>

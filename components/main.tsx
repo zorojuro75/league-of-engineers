@@ -9,13 +9,13 @@ export default function Main() {
         <div className="text-black md:w-[38.96%] mx-[20px]">
           <div className="md:ms-[16%] flex flex-col gap-y-10">
             <h1 className="md:w-[566px] md:text-[60px] text-4xl font-bold">
-              League of SETS
+              League of Engineers
             </h1>
             <p className="md:w-[150px] md:text-[32px] text-2xl font-semibold">
               Season <span className={`${styles.wrapper}`}>2</span>
             </p>
             <p className="my-[10px] md:w-[403px] text-[#667085] text-[20px]">
-              Hey there, SETS students! The League of SETS Season 2 is
+              Hey there, SETS students! The League of Engineers Season 2 is
               coming back and it&apos;s super exciting! Here&apos;s the deal: if
               you&apos;re a student from SETS, you can sign up all by yourself.
               Then comes the fun part! Imagine a magical auction where managers

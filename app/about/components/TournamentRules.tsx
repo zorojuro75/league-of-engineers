@@ -13,7 +13,7 @@ const TournamentRules = () => {
           </div>
           <div className="text-gray-500 text-xl text-center pt-[20px]">
             Get a closer look at the tournament&apos;s framework and understand
-            the step-by-step process that drives the League of SETS event.
+            the step-by-step process that drives the League of Engineers event.
           </div>
         </div>
       </div>
@@ -30,7 +30,7 @@ const TournamentRules = () => {
             icon={GiBabyfootPlayers}
             title={"Player Registration"}
             description={
-              "Own your journey! Individually register for the tournament and gear up to showcase your skills on the grand stage of the 'League of SETS'. "
+              "Own your journey! Individually register for the tournament and gear up to showcase your skills on the grand stage of the 'League of Engineers'. "
             }
           />
         </div>
@@ -39,7 +39,7 @@ const TournamentRules = () => {
             icon={GiSoccerField}
             title={"Team Formation"}
             description={
-              "Calling all managers to the bidding table! Craft your dream team through an exciting auction process and set the stage on fire in the 'League of SETS' tournament."
+              "Calling all managers to the bidding table! Craft your dream team through an exciting auction process and set the stage on fire in the 'League of Engineers' tournament."
             }
           />
           <Rules
