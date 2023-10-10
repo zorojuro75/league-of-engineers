@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import PlayerCard from "./components/PlayerCard";
 import supabase from "@/config/supabase";
 import ToggleButton from "./components/ToggleButton";
+import { motion } from "framer-motion";
 
 type Player = {
   id: number;
@@ -74,7 +75,7 @@ const Page = () => {
         <section className="max-w-[90rem] mx-auto px-4 sm:px-6 lg:px-4 py-12">
           <ToggleButton setTabs={setTabs} selectedTab={tabs}/>
           {tabs == "Male" ? (
-            <>
+            <div>
               <div className="text-center pb-12">
                 <h1 className="font-bold text-3xl md:text-4xl lg:text-5xl font-heading text-gray-900">
                   Meet Our Players
@@ -92,7 +93,7 @@ const Page = () => {
                     ))
                   : null}
               </div>
-            </>
+            </div>
           ) : tabs == "Female" ? (
             <>
               <div className="text-center pb-12">
