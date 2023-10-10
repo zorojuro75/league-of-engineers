@@ -12,7 +12,7 @@ const RegistrationProcess = () => {
         
         <li>- Full Name </li>
          <li>- IUB ID </li>
-        <li>- Department (must be from SETS) </li>
+        <li>- Department</li>
          <li>- Email address </li>
         <li>- Tournament name you played before </li>
         <li>
