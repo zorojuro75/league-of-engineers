@@ -100,8 +100,7 @@ const Form = () => {
       {
         label: "Department",
         placeHolder: "Enter your Department",
-        inputType: "dropdown",
-        itemList: ["", "CSE", "EEE", "PS"],
+        inputType: "text",
         name: "department",
       },
       {

@@ -10,10 +10,6 @@ const page = (props: Props) => {
   return (
     <>
       <RegistrationProcess />
-      <Payment />
-      <div className="text-2xl font-semibold md:mx-auto">
-        Player Registration fee 200tk
-      </div>
       <RegButton>
         <Form />
       </RegButton>
