@@ -63,7 +63,7 @@ const Navbar: React.FC<NavbarProps> = ({ children, className }) => {
         "
       >
         <Logo>
-          <img src="league-logo-01.png" alt="" className="md:h-16 w-full" />
+          <img src="League-logo.png" alt="" className="md:h-16 w-full" />
         </Logo>
         {/* Expand button for mobile view */}
         <button
