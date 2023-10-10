@@ -12,10 +12,10 @@ type Props = {};
 const page = (props: Props) => {
   return (
     <div className="max-w-7xl w-full mx-auto flex flex-col my-10 gap-5">
-      <h1 className='text-5xl text-cyan-900 text-center my-10 font-bold'>Teams</h1>
+      {/* <h1 className='text-5xl text-cyan-900 text-center my-10 font-bold'>Teams</h1>
       <div className='grid grid-cols-4 gap-20 h-full'>
         <Team/>
-      </div>
+      </div> */}
       <div className="w-full bg-white shadow-xl h-[400px] rounded-lg flex">
         <div className="w-1/3 h-full p-5 text-center">
           <div className="text-5xl font-bold">Arsenal</div>
