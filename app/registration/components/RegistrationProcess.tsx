@@ -19,10 +19,6 @@ const RegistrationProcess = () => {
           - Preferable position you want to play(subject to change if required)
         </li>
         <li>- Upload your image </li>
-        <li>
-          - Transaction ID(TRX ID) or reference number from your payment
-          transaction. For agent-assisted mobile payments (bKash or Nagad), do not forget to give the reference and obtain the TRX ID.
-        </li>
         <li>- Double-check all information for accuracy.</li>
       </ul>
       <p>3. Click the Submit Button.</p>
