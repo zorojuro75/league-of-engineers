@@ -124,20 +124,6 @@ const Form = () => {
         name: "rating",
         info: "If you were to rate yourself among these four categories: ICON > A > B > C. What would you choose?",
       },
-      {
-        label: "Payment Via",
-        placeHolder: "",
-        inputType: "dropdown",
-        itemList: ["", "Bkash", "Nagad"],
-        name: "payment",
-      },
-      {
-        label: "Transaction",
-        placeHolder: "Enter transaction ID",
-        inputType: "text",
-        name: "transaction",
-        info: "Send 200tk registration fee to 01715069921 via bkash or nagad and enter the TRX ID below",
-      },
     ],
     []
   );
