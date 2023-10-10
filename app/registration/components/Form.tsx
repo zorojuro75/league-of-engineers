@@ -68,7 +68,7 @@ const Form = () => {
         label: "Gender",
         placeHolder: "Enter your Gender",
         inputType: "dropdown",
-        itemList: ["", "Male", "Female"],
+        itemList: ["", "Female"],
         name: "gender",
       },
       {
