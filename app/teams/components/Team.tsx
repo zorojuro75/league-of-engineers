@@ -1,7 +1,7 @@
 "use client";
 import supabase from "@/config/supabase";
 import Link from "next/link";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 type Props = {};
 type Team = {
   teamID: number;
@@ -18,19 +18,22 @@ type Team = {
 
 const Team = (props: Props) => {
   const [teams, setTeams] = useState<Team[]>([]);
-  async function fetchData() {
-    try {
-      const { data, error } = await supabase.from("TeamTable").select("*");
-      if (error) {
-        throw error;
-      } else {
-        setTeams(data);
+  useEffect(()=>{
+    async function fetchData() {
+      try {
+        const { data, error } = await supabase.from("TeamTable").select("*");
+        if (error) {
+          throw error;
+        } else {
+          setTeams(data);
+        }
+      } catch (error) {
+        console.log("error");
       }
-    } catch (error) {
-      console.log("error");
     }
-  }
-  fetchData();
+    fetchData();
+  },[])
+  
   return (
     <>
       {teams.map((team) => (

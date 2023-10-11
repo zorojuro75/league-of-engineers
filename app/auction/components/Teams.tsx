@@ -1,26 +1,26 @@
-import React from 'react'
+import Link from "next/link";
+import React from "react";
 type Team = {
-    id: number,
-    teamName: string,
-    teamAmount: number,
-    teamGender: string,
-    teamManager: string
-  
-  }
+  id: number;
+  teamName: string;
+  teamAmount: number;
+  teamGender: string;
+  teamManager: string;
+};
 type Props = {
-    teams: Team,
-}
+  teams: Team;
+};
 
 const Teams = (props: Props) => {
   return (
-    <>
-    <div className=" px-2">{props.teams.teamName}</div>
+    < >
+      <Link href={`/teams?teamName=${props.teams.teamName}`}  className=" px-2">{props.teams.teamName}</Link>
       <div className=" px-2">{props.teams.teamManager}</div>
       <div className=" px-2">{props.teams.teamAmount}</div>
       <div className=" px-2">{props.teams.teamAmount}</div>
       <div className=" px-2">{props.teams.teamName}</div>
     </>
-  )
-}
+  );
+};
 
-export default Teams
+export default Teams;
