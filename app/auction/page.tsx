@@ -11,6 +11,7 @@ type Team = {
   teamAmount: number;
   teamGender: string;
   teamManager: string;
+  maxBid: number;
 };
 const Auction = () => {
   const search = useSearchParams();
@@ -57,12 +58,12 @@ const Auction = () => {
     </div>
     </div>
     {selectedTab=="Rules"?<AuctionRules/>:
-    <div className="max-w-7xl mx-auto grid grid-cols-5 text-lg rounded shadow-xl bg-white my-10 gap-10 text-center p-10 overflow-auto">
-        <div className="text-xl font-semibold">Team Name</div>
-        <div className="text-xl font-semibold">Manager Name</div>
-        <div className="text-xl font-semibold">Available LP</div>
-        <div className="text-xl font-semibold">Maximum Bid</div>
-        <div className="text-xl font-semibold">No. of Players</div>
+    <div className="max-w-7xl mx-auto grid grid-cols-5 text-center text-xs md:text-lg rounded shadow-xl bg-white my-10 gap-10 p-10 overflow-hidden">
+        <div className="md:text-xl font-semibold text-center">Team Name</div>
+        <div className="md:text-xl font-semibold text-center">Manager Name</div>
+        <div className="md:text-xl font-semibold text-center">Available LP</div>
+        <div className="md:text-xl font-semibold text-center">Maximum Bid</div>
+        <div className="md:text-xl font-semibold text-center">No. of Players</div>
         {teams
           ? teams.map((team) => (
               <React.Fragment key={team.id}>
