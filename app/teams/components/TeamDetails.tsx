@@ -162,14 +162,18 @@ const TeamDetails = () => {
             <div className="text-center bg-blue-gray-50 rounded m-2 p-2">
               <div className="font-bold">Available League Points</div>
               <div className="border-b border-gray-700 mx-5 mb-2"></div>
-              <div className="text-blue-400 font-semibold">
+              <div className="text-blue-400 font-semibold flex justify-center items-center">
                 {5000 - totalSpend}
+                <img src="favicon.png" className="h-6 w-6" />
               </div>
             </div>
             <div className="text-center bg-blue-gray-50 rounded m-2 p-2">
               <div className="font-bold">Next Affordable Max Bid</div>
               <div className="border-b border-gray-700 mx-5 mb-2"></div>
-              <div className="text-blue-400 font-semibold">{team?.maxBid}</div>
+              <div className="text-blue-400 font-semibold flex justify-center items-center">
+                {team?.maxBid}
+                <img src="favicon.png" className="h-6 w-6" />
+              </div>
             </div>
             <div className="text-center bg-blue-gray-50 rounded m-2 p-2">
               <div className="font-bold">Number of Players Bought</div>
@@ -217,7 +221,11 @@ const TeamDetails = () => {
         </div>
         {players
           ? players.map((player) => (
-              <PlayerInfo key={player.playerID} playerID={player.playerID} />
+              <PlayerInfo
+                key={player.playerID}
+                playerID={player.playerID}
+                price={player.playerPrice}
+              />
             ))
           : null}
       </div>

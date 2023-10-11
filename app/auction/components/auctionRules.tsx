@@ -66,7 +66,7 @@ const AuctionRules = (props: Props) => {
           </div>
         </div>
         <div>
-          <span className="font-semibold">Manager Playing:</span> Managers have the option to play as a player in their team&apos;s lineup, but it comes at a cost. They need to deduct 600 League Points from their total points if they choose to play. In this case, the team will require to buy atleast 6 more players instead of 7 because the manager will be playing.
+          <span className="font-semibold">Manager Playing:</span> Managers have the option to play as a player in their team&apos;s lineup, but it comes at a cost. They need to deduct 700 League Points from their total points if they choose to play. In this case, the team will require to buy atleast 6 more players instead of 7 because the manager will be playing.
           <div>
             <span className="font-semibold">Example:</span> If you decide to play as a manager-player, you&apos;ll have 700 fewer League Points available for bidding, and your team will need to purchase atleast 6 more players to complete the lineup.
           </div>

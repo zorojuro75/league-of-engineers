@@ -2,7 +2,9 @@
 import supabase from "@/config/supabase";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
-type Props = {};
+type Props = {
+
+};
 type Team = {
   teamID: number;
   teamName: String;
