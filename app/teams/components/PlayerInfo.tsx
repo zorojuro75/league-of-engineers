@@ -46,13 +46,14 @@ const PlayerInfo = (props: Props) => {
   return (
     <>
         {player?
-        <div className="flex flex-col items-center justify-center text-sm">
+        <div className="flex flex-col items-center justify-center text-sm md:bg-white bg-blue-gray-50 md:w-auto w-[200px] py-5 my-2 rounded shadow-2xl md:shadow-none md:py-0 md:my-0">
         <img
           className="object-center object-cover rounded-full h-28 w-28"
           src={player.image}
           alt="photo"
         />
         <div className='font-bold h-10 text-center flex items-center'>{player.name}</div>
+        <div className='text-center'>{player.position}</div>
         <div className='text-center'>{player.department}</div>
         <div className='text-center'>{player.rating}</div>
       </div>:null

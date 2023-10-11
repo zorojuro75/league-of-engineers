@@ -75,43 +75,49 @@ const TeamDetails = () => {
   return (
     <>
       <div className="mx-5 md:w-full bg-white shadow-xl md:h-[400px] rounded-lg md:flex">
-        <div className="md:w-1/3 h-full p-5 text-center">
+        <div className="md:w-1/3 h-full p-5 text-center flex flex-col items-center justify-center gap-2">
           <div className="text-5xl font-bold">{teamName}</div>
+          <div className="h-48 w-48 bg-blue-gray-50 rounded"></div>
           <div>{team?.teamManager}</div>
+          <div>Manager</div>
+          
         </div>
         <div className="border-r border-gray-400 my-[20px]"></div>
         <div className="h-full grow p-5 text-2xl">
           <div className="md:flex justify-around">
-            <div className="text-center">
+            <div className="text-center bg-blue-gray-50 rounded m-2 p-2">
               <div className="font-bold">Available League Points</div>
-              <div>{5000 - totalSpend}</div>
+              <div className="border-b border-gray-700 mx-5 mb-2"></div>
+              <div className="text-blue-400 font-semibold">{5000 - totalSpend}</div>
             </div>
-            <div className="text-center">
+            <div className="text-center bg-blue-gray-50 rounded m-2 p-2">
               <div className="font-bold">Next Affordable Max Bid</div>
-              <div>{team?.maxBid}</div>
+              <div className="border-b border-gray-700 mx-5 mb-2"></div>
+              <div className="text-blue-400 font-semibold">{team?.maxBid}</div>
             </div>
-            <div className="text-center">
+            <div className="text-center bg-blue-gray-50 rounded m-2 p-2">
               <div className="font-bold">Number of Players Bought</div>
-              <div>{players ? players.length : 0}</div>
+              <div className="border-b border-gray-700 mx-5 mb-2"></div>
+              <div className="text-blue-400 font-semibold">{players ? players.length : 0}</div>
             </div>
           </div>
           <div className="my-8 text-center font-bold">
             Minimum Squad Requirements
           </div>
-          <div className="grid md:grid-cols-5 grid-cols-1 text-lg text-center place-items-center">
-            <div className="p-5 border border-black rounded-full h-[100px] w-[100px] flex items-center justify-center">
+          <div className="grid md:grid-cols-5 grid-cols-2 text-lg text-center place-items-center gap-y-5">
+            <div className="p-5 border border-black rounded-full h-[100px] w-[100px] flex items-center justify-center bg-red-400">
               1 Icon
             </div>
-            <div className="p-5 text-lg border border-black rounded-full h-[100px] w-[100px] flex items-center justify-center">
+            <div className="p-5 text-lg border border-black rounded-full h-[100px] w-[100px] flex items-center justify-center bg-red-400">
               1 category A
             </div>
-            <div className="p-5 border border-black rounded-full h-[100px] w-[100px] flex items-center justify-center">
+            <div className="p-5 border border-black rounded-full h-[100px] w-[100px] flex items-center justify-center bg-red-400">
               1 category B
             </div>
-            <div className="p-5 border border-black rounded-full h-[100px] w-[100px] flex items-center justify-center">
+            <div className="p-5 border border-black rounded-full h-[100px] w-[100px] flex items-center justify-center bg-red-400">
               1 category C
             </div>
-            <div className="p-5 border border-black rounded-full h-[100px] w-[100px] flex items-center justify-center">
+            <div className="p-5 border border-black rounded-full h-[100px] w-[100px] flex items-center justify-center col-span-2 md:col-span-1 bg-red-400">
               7 Players
             </div>
           </div>
@@ -120,21 +126,6 @@ const TeamDetails = () => {
       <div className="md:w-full mx-5 bg-white shadow-xl rounded-lg grid md:grid-cols-8 grid-cols-1 place-items-center py-10">
         <div className="md:col-span-8 text-3xl text-center font-bold my-5">Squad</div>
         {players
-          ? players.map((player) => (
-              <PlayerInfo key={player.playerID} playerID={player.playerID} />
-            ))
-          : null}
-          {players
-          ? players.map((player) => (
-              <PlayerInfo key={player.playerID} playerID={player.playerID} />
-            ))
-          : null}
-          {players
-          ? players.map((player) => (
-              <PlayerInfo key={player.playerID} playerID={player.playerID} />
-            ))
-          : null}
-          {players
           ? players.map((player) => (
               <PlayerInfo key={player.playerID} playerID={player.playerID} />
             ))
