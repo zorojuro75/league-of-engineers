@@ -19,22 +19,24 @@ const Auction = () => {
   const [error, setError] = useState<string | null>(null);
   let selectedTab = search.get('tab')
   useEffect(() => {
-    async function fetchPlayers() {
+    async function fetchTeams() {
       try {
         const { data, error } = await supabase.from("Team").select();
 
         if (error) {
           setError(error.message);
         } else {
-          setTeams(data || []);
+          const sortedTeams = data.sort((a, b) => a.id - b.id);
+          setTeams(sortedTeams);
         }
       } catch (e) {
         setError("An unexpected error occurred.");
         console.error("An unexpected error occurred:", e);
       }
     }
-    fetchPlayers();
-  }, [teams, setTeams]);
+    fetchTeams();
+    
+  }, []);
   return (
     <>
     <div className="max-w-7xl mx-auto my-5">

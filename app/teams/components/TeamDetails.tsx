@@ -176,12 +176,7 @@ const TeamDetails = () => {
     if (cateC >= 1) {
       setCBG("bg-green-400");
     }
-    if(manager?.isPlayer==true){
-      setTotalPlayer(cateA+cateB+cateC+icon+1);
-    }
-    else{
-      setTotalPlayer(cateA+cateB+cateC+icon);
-    }
+    setTotalPlayer(cateA + cateB + cateC + icon);
     if (totalPlayer >= 7) {
       setPlayerBG("bg-green-400");
     }
@@ -222,9 +217,7 @@ const TeamDetails = () => {
             <div className="text-center bg-blue-gray-50 rounded m-2 p-2">
               <div className="font-bold">Number of Players Bought</div>
               <div className="border-b border-gray-700 mx-5 mb-2"></div>
-              <div className="text-blue-400 font-semibold">
-                {totalPlayer}
-              </div>
+              <div className="text-blue-400 font-semibold">{totalPlayer}</div>
             </div>
           </div>
           <div className="my-8 text-center font-bold">
