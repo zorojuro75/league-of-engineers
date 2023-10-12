@@ -48,36 +48,65 @@ type Player = {
 const TeamDetails = (props: Props) => {
   const teamName = props.teamName;
 
+  const [managerInfo, setManagerInfo] = useState<Manager | null>(null);
+
   useEffect(() => {
-  }, []);
+    // Fetch managerInfo by joining Team and Manager tables
+    async function fetchManagerInfo() {
+      try {
+        const { data, error } = await supabase
+          .from("Team")
+          .select("teamManager")
+          .eq("teamName", teamName)
+          .single();
+        
+        if (error) {
+          console.error("Error fetching team manager:", error);
+          return;
+        }
+
+        const managerName = data?.teamManager;
+
+        if (managerName) {
+          const { data: managerData, error: managerError } = await supabase
+            .from("Manager")
+            .select()
+            .eq("managerName", managerName)
+            .single();
+
+          if (managerError) {
+            console.error("Error fetching manager info:", managerError);
+          } else {
+            setManagerInfo(managerData);
+          }
+        }
+      } catch (error) {
+        console.error("Error fetching manager info:", error);
+      }
+    }
+
+    fetchManagerInfo();
+  }, [teamName]);
+
   return (
     <>
-      <div className="mx-5 md:w-full bg-white shadow-xl md:h-[400px] rounded-lg md:flex">
-        <div className="md:w-1/3 h-full p-5 text-center flex flex-col items-center justify-center gap-2">
+      <div className="mx-5 md:w-full bg-white shadow-xl py-5 rounded-lg md:flex">
+        <div className="md:w-1/3 h-auto p-5 text-center flex flex-col items-center justify-center gap-2">
           <div className="text-5xl font-bold">{teamName}</div>
           <img
-            src={''}
+            src={managerInfo?.image}
             alt=""
             className="h-48 w-48 bg-blue-gray-50 rounded border-4 border-gray-600"
           />
-          <div>{}</div>
+          <div>{managerInfo?.managerName}</div>
           <div>Manager</div>
         </div>
-      </div>
-      <div className="md:w-full mx-5 bg-white shadow-xl rounded-lg grid md:grid-cols-8 grid-cols-1 place-items-center py-10 px-5">
-        <div className="md:col-span-8 text-3xl text-center font-bold my-5">
-          Squad
+        <div>
+          <div className="text-center text-3xl font-bold m-5">Squad</div>
+        <PlayerInfo teamName={teamName}/>
         </div>
-        {/* {players
-          ? players.map((player) => (
-              <PlayerInfo
-                key={player.playerID}
-                playerID={player.playerID}
-                price={player.playerPrice}
-              />
-            ))
-          : null} */}
       </div>
+      
     </>
   );
 };

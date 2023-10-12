@@ -1,5 +1,7 @@
+'use client'
 import supabase from "@/config/supabase";
 import React, { useEffect, useState } from "react";
+
 type Player = {
   id: number;
   name: string;
@@ -14,42 +16,61 @@ type Player = {
   rating: number;
   paymentVia: string;
   verified: boolean;
+  teamName: string;
 };
+
 type Props = {
-  playerID: number;
-  price: number;
+  teamName: string;
 };
 
 const PlayerInfo = (props: Props) => {
-  const [error, setError] = useState<string | null>(null);
-  const [player, setPlayer] = useState<Player | null>(null);
+  const [players, setPlayers] = useState<Player[]>([]);
+
   useEffect(() => {
-    async function fetchPlayer() {
+    // Fetch players based on teamName
+    async function fetchPlayersInfo() {
       try {
         const { data, error } = await supabase
           .from("formPlayer")
           .select()
-          .eq("id", props.playerID);
+          .eq("teamName", props.teamName);
+
         if (error) {
-          setError(error.message);
-        } else {
-          if (data) {
-            setPlayer(data[0] as Player);
-          }
+          console.error("Error fetching player info:", error);
+          return;
         }
-      } catch (e) {
-        setError("An unexpected error occurred while fetching player IDs.");
-        console.error("An unexpected error occurred:", e);
+
+        setPlayers(data || []);
+      } catch (error) {
+        console.error("Error fetching player info:", error);
       }
     }
-    fetchPlayer();
-  }, [props.playerID]);
+
+    fetchPlayersInfo();
+  }, [props.teamName]);
+
   return (
-    <>
-      {player ? (
-        <div className="flex flex-col items-center justify-center text-sm md:bg-white bg-blue-gray-50 md:w-auto w-[200px] py-5 my-2 rounded shadow-2xl md:shadow-none md:py-0 md:my-0">
+
+    <div className="grid grid-cols-4 gap-10">
+      {players?
+      players.map((player)=>(
+        <div key={player.id} className="h-36 w-36 flex flex-col items-center text-center">
+        <img src={player.image} alt="" className="h-16 w-16 rounded-full" />
+        <div className="font-semibold">{player.name}</div>
+        <div>{player.position}</div>
+      </div>
+      )):null
+
+      }
+      
+
+      {/* {players.map((player) => (
+        <div
+          key={player.id}
+          className=""
+        >
           <img
-            className="object-center object-cover rounded-full h-28 w-28"
+            className="object-center object-cover rounded-full h-36 w-36"
             src={player.image}
             alt="photo"
           />
@@ -58,14 +79,9 @@ const PlayerInfo = (props: Props) => {
           </div>
           <div className="text-center">{player.position}</div>
           <div className="text-center">{player.department}</div>
-          <div className="text-center">{player.rating}</div>
-          <div className="text-center flex items-center justify-center">
-            {props.price}
-            <img src="favicon.png" className="h-6 w-6" />
-          </div>
         </div>
-      ) : null}
-    </>
+      ))} */}
+    </div>
   );
 };
 

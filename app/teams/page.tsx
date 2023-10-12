@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useState } from "react";
-import Team from "./components/Team";
 import TeamDetails from "./components/TeamDetails";
 import supabase from "@/config/supabase";
 type Props = {};
@@ -16,7 +15,10 @@ const page = (props: Props) => {
         if (error) {
           setError(error.message);
         } else {
-          setTeams(data?.map((team) => team.teamName) || []);
+          const sortedTeams = data
+          ?.map((team) => team.teamName)
+          .sort((a, b) => a.localeCompare(b));
+        setTeams(sortedTeams);
         }
       } catch (e) {
         setError("An unexpected error occurred while fetching team names.");

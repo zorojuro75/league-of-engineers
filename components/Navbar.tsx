@@ -33,15 +33,15 @@ const Navbar: React.FC<NavbarProps> = ({ children, className }) => {
         href: "/players",
       },
       {
-        label: "Auction",
-        active: pathname === "/auction",
-        href: "/auction",
+        label: "Teams",
+        active: pathname === "/teams",
+        href: "/teams",
       },
-      {
-        label: "Group",
-        active: pathname === "/groups",
-        href: "/groups",
-      },
+      // {
+      //   label: "Group",
+      //   active: pathname === "/groups",
+      //   href: "/groups",
+      // },
     ],
     [pathname]
   );
