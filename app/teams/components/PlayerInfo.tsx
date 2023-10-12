@@ -51,7 +51,7 @@ const PlayerInfo = (props: Props) => {
 
   return (
 
-    <div className="grid grid-cols-4 gap-10">
+    <div className="grid md:grid-cols-4 grid-cols-2 md:gap-10 gap-3 place-items-center">
       {players?
       players.map((player)=>(
         <div key={player.id} className="h-36 w-36 flex flex-col items-center text-center">

@@ -92,7 +92,7 @@ const TeamDetails = (props: Props) => {
     <>
       <div className="mx-5 md:w-full bg-white shadow-xl py-5 rounded-lg md:flex">
         <div className="md:w-1/3 h-auto p-5 text-center flex flex-col items-center justify-center gap-2">
-          <div className="text-5xl font-bold">{teamName}</div>
+          <div className="text-4xl font-bold my-2">{teamName}</div>
           <img
             src={managerInfo?.image}
             alt=""
