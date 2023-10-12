@@ -1,16 +1,35 @@
-import React from "react";
+'use client'
+import React, { useEffect, useState } from "react";
 import Team from "./components/Team";
 import TeamDetails from "./components/TeamDetails";
+import supabase from "@/config/supabase";
 type Props = {};
 
 const page = (props: Props) => {
+  const [teams, setTeams] = useState<string[] | undefined>(undefined);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    async function fetchTeam() {
+      try {
+        const { data, error } = await supabase.from("Team").select("teamName");
+        if (error) {
+          setError(error.message);
+        } else {
+          setTeams(data?.map((team) => team.teamName) || []);
+        }
+      } catch (e) {
+        setError("An unexpected error occurred while fetching team names.");
+        console.error("An unexpected error occurred:", e);
+      }
+    }
+    fetchTeam();
+  }, []);
   return (
     <div className="md:max-w-7xl w-full md:mx-auto flex flex-col my-10 gap-5">
-      {/* <h1 className='text-5xl text-cyan-900 text-center my-10 font-bold'>Teams</h1>
-      <div className='grid grid-cols-4 gap-20 h-full'>
-        <Team/>
-      </div> */}
-      <TeamDetails/>
+      {teams
+        ? teams.map((team) => <TeamDetails key={team} teamName={team} />)
+        : null}
     </div>
   );
 };
