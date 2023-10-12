@@ -12,7 +12,16 @@ type TeamInfo = {
   teamManager: string;
   maxBid: number;
 };
-
+type Manager = {
+  id: number;
+  managerName: string;
+  email: string;
+  image: string;
+  department: string;
+  position: string;
+  rating: string;
+  isPlayer: boolean;
+};
 type PlayerInfo = {
   teamID: number;
   playerID: number;
@@ -35,15 +44,17 @@ type Player = {
 };
 const TeamDetails = () => {
   const [team, setTeam] = useState<TeamInfo | null>(null);
+  const [manager, setManager] = useState<Manager | null>(null);
   const [players, setPlayers] = useState<PlayerInfo[] | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [iconBG, setIconBG] = useState<string>("bg-red-400");
   const [ABG, setABG] = useState<string>("bg-red-400");
   const [BBG, setBBG] = useState<string>("bg-red-400");
   const [CBG, setCBG] = useState<string>("bg-red-400");
+  const [availableLP, setAvailableLP] = useState<number>(5000);
+  const [totalPlayer, setTotalPlayer] = useState<number>(0);
   const [playerBG, setPlayerBG] = useState<string>("bg-red-400");
   const [currPlayer, setPlayer] = useState<Player | null>(null);
-  let totalSpend = 0;
   const search = useSearchParams();
   const teamName = search.get("teamName");
 
@@ -66,7 +77,24 @@ const TeamDetails = () => {
         console.error("An unexpected error occurred:", e);
       }
     }
-
+    async function fetchManagerInfo() {
+      try {
+        const { data, error } = await supabase
+          .from("Manager")
+          .select()
+          .eq("managerName", team?.teamManager);
+        if (error) {
+          setError(error.message);
+        } else {
+          if (data && data.length > 0) {
+            setManager(data[0] as Manager);
+          }
+        }
+      } catch (e) {
+        setError("An unexpected error occurred.");
+        console.error("An unexpected error occurred:", e);
+      }
+    }
     async function fetchPlayerIds() {
       try {
         const { data, error } = await supabase
@@ -88,13 +116,19 @@ const TeamDetails = () => {
     }
 
     fetchTeamInfo();
+    fetchManagerInfo();
     fetchPlayerIds();
   }, [teamName, team, setTeam]);
   useEffect(() => {
+    let totalSpend = 0;
     let icon = 0;
     let cateA = 0;
     let cateB = 0;
     let cateC = 0;
+    if (manager?.isPlayer == true) {
+      totalSpend += 600;
+      cateA += 1;
+    }
     players?.forEach((player) => {
       totalSpend += player.playerPrice;
 
@@ -142,17 +176,27 @@ const TeamDetails = () => {
     if (cateC >= 1) {
       setCBG("bg-green-400");
     }
-    const count = players?.length || 0;
-    if (count >= 7) {
+    if(manager?.isPlayer==true){
+      setTotalPlayer(cateA+cateB+cateC+icon+1);
+    }
+    else{
+      setTotalPlayer(cateA+cateB+cateC+icon);
+    }
+    if (totalPlayer >= 7) {
       setPlayerBG("bg-green-400");
     }
+    setAvailableLP(5000 - totalSpend);
   }, [players]);
   return (
     <>
       <div className="mx-5 md:w-full bg-white shadow-xl md:h-[400px] rounded-lg md:flex">
         <div className="md:w-1/3 h-full p-5 text-center flex flex-col items-center justify-center gap-2">
           <div className="text-5xl font-bold">{teamName}</div>
-          <div className="h-48 w-48 bg-blue-gray-50 rounded"></div>
+          <img
+            src={manager?.image}
+            alt=""
+            className="h-48 w-48 bg-blue-gray-50 rounded border-4 border-gray-600"
+          />
           <div>{team?.teamManager}</div>
           <div>Manager</div>
         </div>
@@ -163,7 +207,7 @@ const TeamDetails = () => {
               <div className="font-bold">Available League Points</div>
               <div className="border-b border-gray-700 mx-5 mb-2"></div>
               <div className="text-blue-400 font-semibold flex justify-center items-center">
-                {5000 - totalSpend}
+                {availableLP}
                 <img src="favicon.png" className="h-6 w-6" />
               </div>
             </div>
@@ -179,7 +223,7 @@ const TeamDetails = () => {
               <div className="font-bold">Number of Players Bought</div>
               <div className="border-b border-gray-700 mx-5 mb-2"></div>
               <div className="text-blue-400 font-semibold">
-                {players ? players.length : 0}
+                {totalPlayer}
               </div>
             </div>
           </div>
@@ -215,7 +259,7 @@ const TeamDetails = () => {
           </div>
         </div>
       </div>
-      <div className="md:w-full mx-5 bg-white shadow-xl rounded-lg grid md:grid-cols-8 grid-cols-1 place-items-center py-10">
+      <div className="md:w-full mx-5 bg-white shadow-xl rounded-lg grid md:grid-cols-8 grid-cols-1 place-items-center py-10 px-5">
         <div className="md:col-span-8 text-3xl text-center font-bold my-5">
           Squad
         </div>
@@ -228,6 +272,25 @@ const TeamDetails = () => {
               />
             ))
           : null}
+        {manager?.isPlayer ? (
+          <div className="flex flex-col items-center justify-center text-sm md:bg-white bg-blue-gray-50 md:w-auto w-[200px] py-5 my-2 rounded shadow-2xl md:shadow-none md:py-0 md:my-0">
+            <img
+              className="object-center object-cover rounded-full h-28 w-28"
+              src={manager.image}
+              alt="photo"
+            />
+            <div className="font-bold h-10 text-center flex items-center">
+              {manager.managerName}
+            </div>
+            <div className="text-center">{manager.position}</div>
+            <div className="text-center">{manager.department}</div>
+            <div className="text-center">{manager.rating}</div>
+            <div className="text-center flex items-center justify-center">
+              {600}
+              <img src="favicon.png" className="h-6 w-6" />
+            </div>
+          </div>
+        ) : null}
       </div>
     </>
   );
