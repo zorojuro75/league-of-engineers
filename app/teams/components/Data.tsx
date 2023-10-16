@@ -2,7 +2,9 @@
 import React, { useEffect, useState } from "react";
 import TeamDetails from "./TeamDetails";
 import supabase from "@/config/supabase";
-type Props = {};
+type Props = {
+  teamGender: string;
+};
 
 const Data = (props: Props) => {
   const [teams, setTeams] = useState<string[] | undefined>(undefined);
@@ -11,7 +13,7 @@ const Data = (props: Props) => {
   useEffect(() => {
     async function fetchTeam() {
       try {
-        const { data, error } = await supabase.from("Team").select("teamName");
+        const { data, error } = await supabase.from("Team").select("teamName").eq('teamGender', props.teamGender);
         if (error) {
           setError(error.message);
         } else {
@@ -26,7 +28,7 @@ const Data = (props: Props) => {
       }
     }
     fetchTeam();
-  }, []);
+  }, [props.teamGender]);
   return (
     <div className="md:max-w-7xl w-full md:mx-auto flex flex-col my-10 gap-5">
       {teams
