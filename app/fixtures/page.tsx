@@ -47,9 +47,9 @@ const Page = (props: Props) => {
         ? fixtures.map((match) => (
             <div
               key={match.matchID}
-              className="md:w-[450px] bg-gray-50 flex items-center px-10 py-2"
+              className="md:w-[450px] bg-gray-50 flex items-center px-2 md:px-10 py-2"
             >
-              <div className="flex justify-between w-[65%] px-2">
+              <div className="flex justify-between md:w-[65%] w-[60%] px-2">
                 <div>
                   <div>{match.homeTeam}</div>
                   <div>{match.awayTeam}</div>
@@ -59,7 +59,7 @@ const Page = (props: Props) => {
                   <div>{match.awayGoal}</div>
                 </div>
               </div>
-              <div className="border-s border-black border-opacity-40 ps-5">
+              <div className="border-s border-black border-opacity-40 md:ps-5 ps-1">
                 <div>{match.matchDate}</div>
                 <div>{match.matchTime}</div>
                 <div>{match.matchDay}</div>
