@@ -24,9 +24,14 @@ const Page = (props: Props) => {
         if (error) {
           setError(error.message);
         } else {
-            data.sort((a, b) => {
-                return a.matchTime.localeCompare(b.matchTime);
-            });
+          data.sort((a, b) => {
+            const dateComparison = a.matchDate.localeCompare(b.matchDate);
+            if (dateComparison === 0) {
+              return a.matchTime.localeCompare(b.matchTime);
+            }
+            return dateComparison;
+          });
+    
           setFixtures(data || []);
         }
       } catch (e) {
