@@ -42,12 +42,12 @@ const Page = (props: Props) => {
     fetchFixtures();
   });
   return (
-    <div className="w-max-7xl shadow-xl bg-white mx-auto grid grid-cols-2 place-content-between gap-x-20 gap-y-5 p-10 rounded-lg my-10">
+    <div className="w-max-7xl shadow-xl bg-white mx-auto grid md:grid-cols-2 grid-cols-1 place-content-between gap-x-20 gap-y-5 p-10 rounded-lg my-10 text-sm md:text-lg">
       {fixtures
         ? fixtures.map((match) => (
             <div
               key={match.matchID}
-              className="w-[450px] bg-gray-50 flex items-center px-10 py-2"
+              className="md:w-[450px] bg-gray-50 flex items-center px-10 py-2"
             >
               <div className="flex justify-between w-[65%] px-2">
                 <div>
