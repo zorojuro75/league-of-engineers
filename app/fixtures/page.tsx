@@ -12,6 +12,7 @@ type Fixture = {
   matchTime: string;
   homeGoal: string;
   awayGoal: string;
+  groupName: string;
 };
 const Page = (props: Props) => {
   const [error, setError] = useState<string | null>(null);
@@ -45,11 +46,13 @@ const Page = (props: Props) => {
     <div className="w-max-7xl shadow-xl bg-white mx-auto grid md:grid-cols-2 grid-cols-1 place-content-between gap-x-20 gap-y-5 p-10 rounded-lg my-10 text-sm md:text-lg">
       {fixtures
         ? fixtures.map((match) => (
-            <div
-              key={match.matchID}
-              className="md:w-[450px] bg-gray-50 flex items-center px-2 md:px-10 py-2"
-            >
-              <div className="flex justify-between md:w-[65%] w-[60%] px-2">
+          <div
+          key={match.matchID}
+          className={`md:w-[450px] flex items-center px-2 md:px-10 py-2 ${
+            match.groupName === "A" ? "bg-green-500 bg-opacity-20" : match.groupName === "B"? "bg-blue-500 bg-opacity-20":match.groupName === "C"? "bg-yellow-500 bg-opacity-20": match.groupName === "D"? "bg-red-500 bg-opacity-20": "bg-purple-500 bg-opacity-20"
+          }`}
+        >
+              <div className="flex justify-between md:w-[65%] w-[60%] px-2 bg-group-color">
                 <div>
                   <div>{match.homeTeam}</div>
                   <div>{match.awayTeam}</div>
