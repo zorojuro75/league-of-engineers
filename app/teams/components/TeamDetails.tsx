@@ -1,9 +1,10 @@
 "use client";
 import PlayerCard from "@/app/players/components/PlayerCard";
 import supabase from "@/config/supabase";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 import PlayerInfo from "./PlayerInfo";
+import Link from "next/link";
 type Props = {
   teamName:string;
 };
@@ -92,7 +93,7 @@ const TeamDetails = (props: Props) => {
     <>
       <div className="mx-5 md:w-full bg-white shadow-xl py-5 rounded-lg md:flex">
         <div className="md:w-1/3 h-auto p-5 text-center flex flex-col items-center justify-center gap-2">
-          <div className="text-4xl font-bold my-2">{teamName}</div>
+          <Link href={`?${teamName}`} className="text-4xl font-bold my-2">{teamName}</Link>
           <img
             src={managerInfo?.image}
             alt=""

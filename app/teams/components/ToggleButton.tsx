@@ -9,7 +9,7 @@ type Props = {
 const ToggleButton = (props: Props) => {
   const router = useRouter();
   useEffect(()=>{
-    router.push(`?tab=${props.selectedTab}`)
+    router.push(`?gender=${props.selectedTab}`)
   },[props.selectedTab])
   
   return (

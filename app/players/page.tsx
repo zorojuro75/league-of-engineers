@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import PlayerCard from "./components/PlayerCard";
 import supabase from "@/config/supabase";
 import ToggleButton from "./components/ToggleButton";
-import { motion } from "framer-motion";
 
 type Player = {
   id: number;

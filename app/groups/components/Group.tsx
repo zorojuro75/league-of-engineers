@@ -44,7 +44,7 @@ const Group = (props: Props) => {
             <div className="hidden md:block">Difference</div>
             <div>Points</div>
             <div className="md:col-span-10 col-span-6 border-b border-gray-400"></div>
-            <Team groupName={group.groupName}/>
+            <Team groupID={group.groupID}/>
           </div>
         </div>
       ))}

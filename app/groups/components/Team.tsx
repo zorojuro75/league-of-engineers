@@ -3,7 +3,7 @@ import supabase from '@/config/supabase';
 import Link from 'next/link';
 import React, { useState } from 'react'
 type Props = {
-  groupName: String,
+  groupID: number,
 }
 type Team = {
   teamID: number;
@@ -19,9 +19,9 @@ type Team = {
 };
 const Team = (props: Props) => {
   const [teams, setTeams] = useState<Team[]>([]);
-  async function fetchData(groupName:String) {
+  async function fetchData(groupID:number) {
     try{
-      const {data, error} = await supabase.from('TeamTable').select('*').eq('groupName', groupName);
+      const {data, error} = await supabase.from('TeamTable').select('*').eq('groupID', groupID);
       if(error){
         throw error;
       }else{
@@ -33,7 +33,6 @@ const Team = (props: Props) => {
           } else if (b.scored !== a.scored) {
             return b.scored - a.scored;
           } else {
-            // Sort by team name if all other criteria are the same
             return a.teamName.localeCompare(b.teamName);
           }
         });
@@ -44,12 +43,12 @@ const Team = (props: Props) => {
       console.log('error');
     }
   }
-  fetchData(props.groupName);
+  fetchData(props.groupID);
   return (
     teams.map((team)=>(
       <React.Fragment key={team.teamID}>
                   <Link href={`/teams`}
-                   className="text-xl text-gray-800 md:col-span-2 cursor-pointer">
+                   className="text-xl 0 md:col-span-2 cursor-pointer text-black">
                     {team.teamName}
                   </Link>
                   <div className="text-xl text-gray-800">
