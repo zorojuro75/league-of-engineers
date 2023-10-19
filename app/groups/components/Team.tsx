@@ -48,31 +48,31 @@ const Team = (props: Props) => {
     teams.map((team)=>(
       <React.Fragment key={team.teamID}>
                   <Link href={`/teams`}
-                   className="text-xl 0 md:col-span-2 cursor-pointer text-black">
+                   className="md:text-xl text-sm 0 md:col-span-2 cursor-pointer text-black">
                     {team.teamName}
                   </Link>
-                  <div className="text-xl text-gray-800">
+                  <div className="md:text-xl text-sm text-gray-800">
                     {team? team.played: 0}
                   </div>
-                  <div className="text-xl text-gray-800">
+                  <div className="md:text-xl text-sm text-gray-800">
                     {team ? team.won : 0}
                   </div>
-                  <div className="text-xl text-gray-800">
+                  <div className="md:text-xl text-sm text-gray-800">
                     {team ? team.lost : 0}
                   </div>
-                  <div className="text-xl text-gray-800">
+                  <div className="md:text-xl text-sm text-gray-800">
                     {team ? team.drawn : 0}
                   </div>
-                  <div className="text-xl text-gray-800 hidden md:block">
+                  <div className="md:text-xl text-sm text-gray-800 hidden md:block">
                     {team ? team.scored : 0}
                   </div>
-                  <div className="text-xl text-gray-800 hidden md:block">
+                  <div className="md:text-xl text-sm text-gray-800 hidden md:block">
                     {team ? team.conceded : 0}
                   </div>
-                  <div className="text-xl text-gray-800 hidden md:block">
+                  <div className="md:text-xl text-sm text-gray-800 hidden md:block">
                     {team ? team.difference : 0}
                   </div>
-                  <div className="text-xl text-gray-800">
+                  <div className="md:text-xl text-sm text-gray-800">
                     {team ? team.points : 0}
                   </div>
                 </React.Fragment>

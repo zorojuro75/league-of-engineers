@@ -35,7 +35,7 @@ const Group = (props: Props) => {
           <div className="text-2xl font-semibold text-cyan-900 text-center py-2">
             {group.groupName}
           </div>
-          <div className="grid md:grid-cols-10 grid-cols-6 gap-y-2 text-center">
+          <div className="grid md:grid-cols-10 grid-cols-6 gap-y-2 text-center md:text-xl text-sm place-items-center">
             <div className="md:col-span-2"></div>
             <div>Played</div>
             <div>Won</div>
