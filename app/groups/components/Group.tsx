@@ -29,7 +29,9 @@ const Group = (props: Props) => {
   return (
     <div className="flex flex-col gap-10">
       {groups?.map((group) => (
-        <div key={group.groupID} className="rounded px-5 py-2 bg-white shadow-sm">
+        <div key={group.groupID} className={`rounded px-5 py-2  shadow-sm ${
+          group.groupName === "Group A" ? "bg-green-500 bg-opacity-20" : group.groupName === "Group B"? "bg-blue-500 bg-opacity-20":group.groupName === "Group C"? "bg-yellow-500 bg-opacity-20": group.groupName === "Group D"? "bg-red-500 bg-opacity-20": "bg-purple-500 bg-opacity-20"
+        }`}>
           <div className="text-2xl font-semibold text-cyan-900 text-center py-2">
             {group.groupName}
           </div>
