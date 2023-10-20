@@ -12,7 +12,7 @@ const ToggleButton = (props: Props) => {
         onClick={() => props.setTabs("Male")}
         className={`${
           props.selectedTab === "Male" ? "bg-[#E3A02B]" : ""
-        } h-full w-1/3 flex items-center justify-center rounded-s-lg`}
+        } h-full w-1/2 flex items-center justify-center rounded-s-lg`}
       >
         Male
       </div>
@@ -20,17 +20,9 @@ const ToggleButton = (props: Props) => {
         onClick={() => props.setTabs("Female")}
         className={`${
           props.selectedTab === "Female" ? "bg-[#E3A02B]" : ""
-        } h-full w-1/3 flex items-center justify-center border-x`}
+        } h-full w-1/2 flex items-center justify-center border-x`}
       >
         Female
-      </div>
-      <div
-        onClick={() => props.setTabs("Manager")}
-        className={`${
-          props.selectedTab === "Manager" ? "bg-[#E3A02B]" : ""
-        } h-full w-1/3 flex items-center justify-center rounded-e-lg`}
-      >
-        Manager
       </div>
     </div>
   );
