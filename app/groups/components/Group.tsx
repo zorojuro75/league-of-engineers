@@ -35,17 +35,17 @@ const Group = (props: Props) => {
           <div className="text-2xl font-semibold text-cyan-900 text-center py-2">
             {group.groupName}
           </div>
-          <div className="grid md:grid-cols-10 grid-cols-6 gap-y-2 text-center md:text-xl text-sm place-items-center">
-            <div className="md:col-span-2"></div>
-            <div>Played</div>
-            <div>Won</div>
-            <div>Lost</div>
-            <div>Drawn</div>
-            <div className="hidden md:block">Scored</div>
-            <div className="hidden md:block">Conceded</div>
-            <div className="hidden md:block">Difference</div>
+          <div className="grid grid-cols-10 gap-y-2 text-center md:text-xl text-sm place-items-center">
+            <div className="col-span-2"></div>
+            <div>P</div>
+            <div>W</div>
+            <div>L</div>
+            <div>D</div>
+            <div >GS</div>
+            <div >GC</div>
+            <div >GD</div>
             <div>Points</div>
-            <div className="md:col-span-10 col-span-6 border-b border-gray-400"></div>
+            <div className="col-span-10 border-b border-gray-400"></div>
             <Team groupID={group.groupID}/>
           </div>
         </div>

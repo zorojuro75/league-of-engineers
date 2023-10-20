@@ -48,7 +48,7 @@ const Team = (props: Props) => {
     teams.map((team)=>(
       <React.Fragment key={team.teamID}>
                   <Link href={`/teams`}
-                   className="md:text-xl text-sm 0 md:col-span-2 cursor-pointer text-black">
+                   className="md:text-xl text-sm 0 col-span-2 cursor-pointer text-black">
                     {team.teamName}
                   </Link>
                   <div className="md:text-xl text-sm text-gray-800">
@@ -63,13 +63,13 @@ const Team = (props: Props) => {
                   <div className="md:text-xl text-sm text-gray-800">
                     {team ? team.drawn : 0}
                   </div>
-                  <div className="md:text-xl text-sm text-gray-800 hidden md:block">
+                  <div className="md:text-xl text-sm">
                     {team ? team.scored : 0}
                   </div>
-                  <div className="md:text-xl text-sm text-gray-800 hidden md:block">
+                  <div className="md:text-xl text-sm text-gray-800">
                     {team ? team.conceded : 0}
                   </div>
-                  <div className="md:text-xl text-sm text-gray-800 hidden md:block">
+                  <div className="md:text-xl text-sm text-gray-800">
                     {team ? team.difference : 0}
                   </div>
                   <div className="md:text-xl text-sm text-gray-800">
