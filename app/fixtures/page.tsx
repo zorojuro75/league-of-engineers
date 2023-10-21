@@ -137,7 +137,7 @@ const Page = (props: Props) => {
                 </div>
               ) : (
                 <div className="border-s border-black border-opacity-40 md:ps-5 ps-1">
-                  FT
+                  Full Time
                 </div>
               )}
             </div>
@@ -182,7 +182,7 @@ const Page = (props: Props) => {
                 </div>
               ) : (
                 <div className="border-s border-black border-opacity-40 md:ps-5 ps-1">
-                  FT
+                  Full Time
                 </div>
               )}
             </div>
