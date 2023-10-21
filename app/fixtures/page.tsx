@@ -143,6 +143,7 @@ const Page = (props: Props) => {
     fetchFixturesQF();
     fetchFixturesSF();
     fetchFixturesF();
+    fetchFixturesT();
   });
   return (
     <>
