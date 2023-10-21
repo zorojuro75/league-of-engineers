@@ -52,8 +52,8 @@ const Page = (props: Props) => {
   }, []);
   return (
     <div className="max-w-7xl w-full my-10 mx-auto">
-      <div className="text-3xl font-bold">League of SETS Season 2 Stats</div>
-      <div className="w-full max-w-3xl my-5 bg-blue-700 bg-opacity-80 rounded-md shadow-sm text-white">
+      <div className="text-3xl font-bold mx-5 md:mx-0">League of SETS Season 2 Stats</div>
+      <div className="max-w-3xl my-5 bg-blue-700 bg-opacity-80 rounded-md shadow-sm text-white mx-5 md:mx-0">
         <div className="px-10 flex w-full justify-between items-center border-b">
           <div>
             <div className="text-2xl text-white font-bold h-[80px] flex items-center">
@@ -68,7 +68,7 @@ const Page = (props: Props) => {
             <img src="net.svg" alt="" className="w-[150px]" />
           </div>
         </div>
-        <div className="px-10 flex w-full gap-x-16 items-center py-5">
+        <div className="px-10 flex w-full gap-x-16 items-center py-5 ">
           <div>
             <div className="text-3xl font-bold">2.40</div>
             <div>Goals per game</div>
@@ -79,8 +79,8 @@ const Page = (props: Props) => {
           </div>
         </div>
       </div>
-      <div className="text-3xl font-bold">Player Stats</div>
-      <div className="flex gap-5">
+      <div className="text-3xl font-bold mx-5 md:mx-0">Player Stats</div>
+      <div className="md:flex gap-5 mx-5 md:mx-0">
         <div className=" max-w-3xl my-5 bg-blue-700 bg-opacity-80 rounded-md shadow-sm text-white">
           <div className="text-3xl text-center pt-5">Top Goal scorers</div>
           <div className="grid grid-cols-4 gap-5 p-5">
