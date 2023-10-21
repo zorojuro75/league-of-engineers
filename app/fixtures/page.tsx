@@ -148,14 +148,14 @@ const Page = (props: Props) => {
   return (
     <>
       {fixturesF.length != 0 ? (
-        <div className="w-max-7xl shadow-xl bg-white mx-auto grid md:grid-cols-2 grid-cols-1 place-content-between gap-x-20 gap-y-5 p-10 rounded-lg my-10 text-sm md:text-lg">
+        <div className="w-max-7xl shadow-xl bg-white mx-auto grid md:grid-cols-2 grid-cols-1 place-content-between gap-x-20 gap-y-5 py-10 px-10 rounded-lg my-10 text-sm md:text-lg">  
           <div className="md:col-span-2 text-center text-3xl font-bold">
             Final
           </div>
           {fixturesF.map((match) => (
             <div
               key={match.matchID}
-              className={`md:w-[450px] flex items-center px-2 md:px-10 py-2 ${
+              className={`md:w-[450px] w-[300px] flex items-center px-2 md:px-10 py-2 ${
                 match.groupName === "A"
                   ? "bg-green-500 bg-opacity-20"
                   : match.groupName === "B"
@@ -216,7 +216,7 @@ const Page = (props: Props) => {
           {fixturesT.map((match) => (
             <div
               key={match.matchID}
-              className={`md:w-[450px] col-span-2 flex items-center px-2 md:px-10 py-2 ${
+              className={`md:w-[450px] w-[300px] col-span-2 flex items-center px-2 md:px-10 py-2 ${
                 match.groupName === "A"
                   ? "bg-green-500 bg-opacity-20"
                   : match.groupName === "B"
@@ -277,7 +277,7 @@ const Page = (props: Props) => {
           {fixturesSF.map((match) => (
             <div
               key={match.matchID}
-              className={`md:w-[450px] flex items-center px-2 md:px-10 py-2 ${
+              className={`md:w-[450px] w-[300px] flex items-center px-2 md:px-10 py-2 ${
                 match.groupName === "A"
                   ? "bg-green-500 bg-opacity-20"
                   : match.groupName === "B"
@@ -338,7 +338,7 @@ const Page = (props: Props) => {
           {fixturesQF.map((match) => (
             <div
               key={match.matchID}
-              className={`md:w-[450px] flex items-center px-2 md:px-10 py-2 ${
+              className={`md:w-[450px] w-[300px] flex items-center px-2 md:px-10 py-2 ${
                 match.groupName === "A"
                   ? "bg-green-500 bg-opacity-20"
                   : match.groupName === "B"
@@ -399,7 +399,7 @@ const Page = (props: Props) => {
           ? fixtures.map((match) => (
               <div
                 key={match.matchID}
-                className={`md:w-[450px] flex items-center px-2 md:px-10 py-2 ${
+                className={`md:w-[450px] w-[300px] flex items-center px-2 md:px-10 py-2 ${
                   match.groupName === "A"
                     ? "bg-green-500 bg-opacity-20"
                     : match.groupName === "B"
