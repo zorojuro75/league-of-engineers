@@ -1,7 +1,6 @@
 "use client";
 import supabase from "@/config/supabase";
 import React, { useEffect, useState } from "react";
-import { StringLiteral } from "typescript";
 type Goal = {
   name: string;
   teamName: string;
@@ -12,11 +11,17 @@ type Assist = {
   teamName: string;
   assist: number;
 };
+type CleanSheet = {
+  name: string;
+  teamName: string;
+  cleanSheet: number;
+};
 type Props = {};
 
 const Page = (props: Props) => {
   const [topScorers, setTopScorers] = useState<Goal[]>([]);
   const [topAssists, setTopAssits] = useState<Assist[]>([]);
+  const [topCS, setTopCS] = useState<CleanSheet[]>([]);
 
   useEffect(() => {
     // Fetch the top 5 goal scorers from the playerTable.
@@ -46,10 +51,23 @@ const Page = (props: Props) => {
         setTopAssits(data || []);
       }
     }
+    async function fetchTopCS() {
+      const { data, error } = await supabase
+        .from("PlayerTable")
+        .select("*")
+        .order("cleanSheet", { ascending: false })
+        .limit(5);
 
+      if (error) {
+        console.error("Error fetching data from Supabase:", error);
+      } else {
+        setTopCS(data || []);
+      }
+    }
+    fetchTopCS();
     fetchTopAssists();
     fetchTopScorers();
-  });
+  }), [];
   return (
     <div className="max-w-7xl w-full my-10 mx-auto">
       <div className="text-3xl font-bold mx-5 md:mx-0">League of SETS Season 2 Stats</div>
@@ -111,21 +129,21 @@ const Page = (props: Props) => {
             ))}
           </div>
         </div>
-        {/* <div className=" max-w-3xl my-5 bg-blue-700 bg-opacity-80 rounded-md shadow-sm text-white">
+        <div className=" max-w-3xl my-5 bg-blue-700 bg-opacity-80 rounded-md shadow-sm text-white">
           <div className="text-3xl text-center pt-5">Top Clean Sheet keeper</div>
           <div className="grid grid-cols-4 gap-5 p-5">
-            {topScorers.map((player, index) => (
+            {topCS.map((player, index) => (
               <React.Fragment key={index}>
                 <div>{index + 1}</div>
                 <div className="col-span-2 text-left">
                   <div>{player.name}</div>
                   <div className="text-gray-400 text-sm">{player.teamName}</div>
                 </div>
-                <div className="text-right">{player.goal}</div>
+                <div className="text-right">{player.cleanSheet}</div>
               </React.Fragment>
             ))}
           </div>
-        </div> */}
+        </div>
       </div>
 
     </div>
