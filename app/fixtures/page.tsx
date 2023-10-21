@@ -11,7 +11,9 @@ type Fixture = {
   matchDate: string;
   matchTime: string;
   homeGoal: string;
+  homeGoalT: string;
   awayGoal: string;
+  awayGoalT: string;
   groupName: string;
   played: boolean;
 };
@@ -168,8 +170,8 @@ const Page = (props: Props) => {
                   <div>{match.awayTeam}</div>
                 </div>
                 <div>
-                  <div>{match.homeGoal}</div>
-                  <div>{match.awayGoal}</div>
+                  <div>{match.homeGoal}{match.played==true && match.homeGoal==match.awayGoal?<>({match.homeGoalT})</>:<></>}</div>
+                  <div>{match.awayGoal}{match.played==true && match.homeGoal==match.awayGoal?<>({match.awayGoalT})</>:<></>}</div>
                 </div>
               </div>
               <div className="border-s border-black border-opacity-40 md:ps-5 ps-1">
@@ -207,8 +209,8 @@ const Page = (props: Props) => {
                   <div>{match.awayTeam}</div>
                 </div>
                 <div>
-                  <div>{match.homeGoal}</div>
-                  <div>{match.awayGoal}</div>
+                  <div>{match.homeGoal}{match.played==true && match.homeGoal==match.awayGoal?<>({match.homeGoalT})</>:<></>}</div>
+                  <div>{match.awayGoal}{match.played==true && match.homeGoal==match.awayGoal?<>({match.awayGoalT})</>:<></>}</div>
                 </div>
               </div>
               {match.played != true ? (
