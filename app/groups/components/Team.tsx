@@ -45,12 +45,12 @@ const Team = (props: Props) => {
   }
   fetchData(props.groupID);
   return (
-    teams.map((team)=>(
+    teams.map((team, index)=>(
       <React.Fragment key={team.teamID}>
-                  <Link href={`/teams`}
+                  <div
                    className="md:text-xl text-sm 0 col-span-2 cursor-pointer text-black">
-                    {team.teamName}
-                  </Link>
+                    {index < 2 ? `${team.teamName} (Q)` : team.teamName}
+                  </div>
                   <div className="md:text-xl text-sm text-gray-800">
                     {team? team.played: 0}
                   </div>
