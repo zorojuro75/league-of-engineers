@@ -129,11 +129,17 @@ const Page = (props: Props) => {
                   <div>{match.awayGoal}{match.played==true && match.homeGoal==match.awayGoal?<>({match.awayGoalT})</>:<></>}</div>
                 </div>
               </div>
-              <div className="border-s border-black border-opacity-40 md:ps-5 ps-1">
-                <div>{match.matchDate}</div>
-                <div>{match.matchTime}</div>
-                <div>{match.matchDay}</div>
-              </div>
+              {match.played != true ? (
+                <div className="border-s border-black border-opacity-40 md:ps-5 ps-1">
+                  <div>{match.matchDate}</div>
+                  <div>{match.matchTime}</div>
+                  <div>{match.matchDay}</div>
+                </div>
+              ) : (
+                <div className="border-s border-black border-opacity-40 md:ps-5 ps-1">
+                  FT
+                </div>
+              )}
             </div>
           ))}
         </div>
