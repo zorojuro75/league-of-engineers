@@ -211,7 +211,7 @@ const Page = (props: Props) => {
       {fixturesT.length != 0 ? (
         <div className="w-max-7xl shadow-xl bg-white mx-auto grid md:grid-cols-2 grid-cols-1 place-content-between gap-x-20 gap-y-5 p-10 rounded-lg my-10 text-sm md:text-lg">
           <div className="md:col-span-2 text-center text-3xl font-bold">
-            Final
+            Third Place
           </div>
           {fixturesT.map((match) => (
             <div
