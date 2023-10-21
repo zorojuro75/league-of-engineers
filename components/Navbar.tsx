@@ -47,6 +47,11 @@ const Navbar: React.FC<NavbarProps> = ({ children, className }) => {
         active: pathname === "/fixtures",
         href: "/fixtures",
       },
+      {
+        label: "Stats",
+        active: pathname === "/stats",
+        href: "/stats",
+      },
     ],
     [pathname]
   );
