@@ -216,7 +216,7 @@ const Page = (props: Props) => {
           {fixturesT.map((match) => (
             <div
               key={match.matchID}
-              className={`md:w-[450px] flex items-center px-2 md:px-10 py-2 ${
+              className={`md:w-[450px] col-span-2 flex items-center px-2 md:px-10 py-2 ${
                 match.groupName === "A"
                   ? "bg-green-500 bg-opacity-20"
                   : match.groupName === "B"
