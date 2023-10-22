@@ -78,7 +78,7 @@ const Page = (props: Props) => {
               Goals
             </div>
             <div className="h-[100px] flex flex-col gap-5">
-              <div className="text-5xl font-bold ">97</div>
+              <div className="text-5xl font-bold ">108</div>
               <div className=" ">Total Goals</div>
             </div>
           </div>
@@ -88,11 +88,11 @@ const Page = (props: Props) => {
         </div>
         <div className="px-10 flex w-full gap-x-16 items-center py-5 ">
           <div>
-            <div className="text-3xl font-bold">2.69</div>
+            <div className="text-3xl font-bold">2.77</div>
             <div>Goals per game</div>
           </div>
           <div>
-            <div className="text-3xl font-bold">11.13&apos;</div>
+            <div className="text-3xl font-bold">10.83&apos;</div>
             <div>Minutes per goal</div>
           </div>
         </div>
